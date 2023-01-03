@@ -61,7 +61,7 @@ const newReleases = [
     {
         id: 7,
         image: "/rec7.svg",
-        title: "Black",
+        title: "Blind",
         subtitle: "Wiz zee",
     },
 ]

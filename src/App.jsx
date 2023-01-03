@@ -7,7 +7,7 @@ import Playlist from './pages/playlist'
 function App() {
 
   return (
-    <div className="App md:h-screen container mx-auto flex bg-[#1D2123]">
+    <div className="App h-screen overflow-y-scroll container mx-auto flex bg-[#1D2123]">
       <Sidebar/>
       <Routes>
           <Route exact path='/' element={<Home/>}/>
