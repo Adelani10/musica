@@ -37,20 +37,20 @@ export default function Home () {
                         Top Charts
                     </h1>
 
-                    <article className="flex md:flex-col md:space-y-2 overflow-x-scroll md:overflow-x-auto space-x-6 md:space-x-0">
+                    <article className="flex md:flex-col md:space-y-1 overflow-x-scroll md:overflow-x-auto space-x-6 md:space-x-0">
                         {topChartsElements}
                     </article>
                 </div>
             </header>
 
-            <article className="space-y-1">
+            <section className="space-y-1">
                 <h1 className="text-white text-lg font-bold tracking-wider">
                     New Releases
                 </h1>
                 <article className="flex overflow-x-scroll md:overflow-x-auto space-x-8">
                     {newReleasesElements}
                 </article>
-            </article>
+            </section>
 
         </section>
     )
