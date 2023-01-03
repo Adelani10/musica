@@ -21,12 +21,22 @@ export default function Home () {
     })
 
     return (
-        <section className="w-[90%] lg:w-[92%] p-4 md:space-y-3 space-y-5">
-            <input 
-                type="text" 
-                className=" bg-[#1D2123] h-10 w-full px-3 rounded-sm text-sm tracking-widest text-white" 
-                placeholder="Search 🔍"
-            />
+        <section className="md:w-[90%] w-full lg:w-[92%] p-4 md:space-y-3 space-y-3">
+            <div className="flex space-x-3">
+                <div className="flex space-x-3 md:hidden">
+                    <button className="text-gray-400 text-xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <img src="/logo.svg" alt="" className="w-6" />
+                </div>
+                <input 
+                    type="text" 
+                    className=" bg-[#1D2123] h-10 w-full px-3 rounded-sm text-sm tracking-widest text-white text-right md:text-left" 
+                    placeholder="Search"
+                />
+                
+            </div>
+            
 
             <header className="flex flex-col md:flex-row md:space-x-6 space-y-5 md:space-y-0 md:items-center ">
                 <img src="/frame1.svg" alt="" className="w-[60%] hidden md:inline-block" />
