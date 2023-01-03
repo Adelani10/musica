@@ -43,7 +43,7 @@ const newReleases = [
     {
         id: 4,
         image: "/rec4.svg",
-        title: "Everything's black",
+        title: "Black",
         subtitle: "Ameed",
     },
     {
