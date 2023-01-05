@@ -6,9 +6,12 @@ export default function NowPlaying () {
 
     const {percent, handleChange, value, getBackgroundSize} = useContext(AddContext)
 
-    console.log(percent)
+    const styles = {
+        width: `${percent}%`
+    }
+
     return (
-            <footer className="sticky bottom-0 np w-full h-24 font-mono flex justify-between items-center md:px-4 px-8">
+            <footer className="sticky bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
                 <section className="space-x-2 flex md:w-[20%] items-center">
                     <img src="/NP.svg" alt="" className="w-10 rounded-xl" />
                     
@@ -43,8 +46,8 @@ export default function NowPlaying () {
                             <i className="fa-solid fa-repeat"></i>
                         </button>
                     </div>
-                    <div className="outer h-1 bg-neutral-30 hidden md:inline-block rounded-full w-full">
-                        <div className={`inner h-full w-[${percent}%] rounded-full bg-[#FACD66]`}>
+                    <div className="outer h-1 bg-neutral-300 hidden md:inline-block rounded-full w-full">
+                        <div className="inner h-full rounded-full bg-[#FACD66]" style={styles}>
                         </div>
                     </div>
                 </section>

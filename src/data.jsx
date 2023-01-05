@@ -69,4 +69,43 @@ const newReleases = [
     },
 ]
 
-export {data, newReleases}
+const sb = [
+    {
+        id: 1,
+        icon: "/Home.svg",
+        title: "Home",
+        path: ""
+    },
+    {
+        id: 2,
+        icon: "/pl.svg",
+        title: "My Collections",
+        path: "playlist"
+    },
+    {
+        id: 3,
+        icon: "/radio.svg",
+        title: "Radio",
+        path: "radio"
+    },
+    {
+        id: 4,
+        icon: "/videos.svg",
+        title: " Music Video",
+        path: "videos"
+    },
+    {
+        id: 5,
+        icon: "/profile.svg" ,
+        title: "Profile",
+        path: "profile"
+    },
+    {
+        id: 6,
+        icon: "/Logout.svg",
+        title: "Log Out",
+        path: "logOut"
+    },
+]
+
+export {data, newReleases, sb}

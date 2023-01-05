@@ -2,14 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { data } from "./data";
 import { newReleases } from "./data";
+import { sb } from "./data";
 
 const AddContext = React.createContext()
 
 function Context (props) {
     const [topChartsData, setTopChartsData] = useState(data)
     const [newReleasesData, setNewReleasesData] = useState(newReleases)
+    const [sideBarData, setSideBarData] = useState(sb)
     const [value, setValue] = useState(0)
     const [random, setRandom] = useState(randomNumber())
+    const [isShown, setIsShown] = useState(false)
 
 
     function generateHowFar( result, main){
@@ -28,6 +31,14 @@ function Context (props) {
         return { backgroundSize: `${value * 100 / 10}% 100%`}
     }
 
+    function showSideBar () {
+        setIsShown(true)
+    }
+
+    function removeSideBar () {
+        setIsShown(false)
+    }
+
 
 
 
@@ -38,7 +49,11 @@ function Context (props) {
             value,
             handleChange,
             getBackgroundSize,
-            percent
+            percent,
+            isShown,
+            showSideBar,
+            removeSideBar,
+            sideBarData
         }}>
             {props.children}
         </AddContext.Provider>

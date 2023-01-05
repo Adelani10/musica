@@ -4,20 +4,28 @@ import { Routes, Route} from 'react-router-dom'
 import Home from './pages/home'
 import Playlist from './pages/playlist'
 import NowPlaying from './components/nowPlaying'
+import Radio from './pages/radio'
+import Videos from './pages/videos'
+import Profile from './pages/profile'
+import LogOut from './pages/logOut'
+import Nav from './components/nav'
+import { AddContext } from "./context";
+import { useContext } from "react";
 
 function App() {
 
   return (
-    <div className="App h-screen overflow-y-scroll container mx-auto relative bg-[#1D2123]">
-      <div className='flex w-full'>
-        <Sidebar/>
-        <Routes>
-            <Route exact path='/' element={<Home/>}/>
-            <Route path='/playlist' element={<Playlist/>}/>
-            {/* <Route exact path='/stats' element={<Stats/>}/> */}
-            {/* <Route exact path='/aside' element={<Aside/>}/> */}
-        </Routes>
-      </div>
+    <div className="App h-screen overflow-y-scroll font-quickSand container mx-auto relative bg-[#1D2123] p-4 text-white md:space-y-4">
+      <Nav/>
+      <Routes>
+          <Route exact path='/' element={<Home/>}/>
+          <Route path='/playlist' element={<Playlist/>}/>
+          <Route path='/radio' element={<Radio/>}/>
+          <Route path='/videos' element={<Videos/>}/>
+          <Route path='/profile' element={<Profile/>}/>
+          <Route path='/logOut' element={<LogOut/>}/>
+      </Routes>
+      <Sidebar/>
       <NowPlaying/>
     </div>
   )
