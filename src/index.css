@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.np {
+    background: rgba(29, 33, 35, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.slider {
+    -webkit-appearance: none;
+    background-image: linear-gradient(#FACD66, #FACD66);
+    background-repeat: no-repeat;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px; 
+    background-color: #FACD66;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.5 solid white;
+}
+

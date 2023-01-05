@@ -10,7 +10,7 @@ export default function Home () {
 
     const topChartsElements = topChartsData.map((item, index) => {
         return (
-            <TopCharts key={index} item={item} />
+            <TopCharts item={item} />
         )
     })
 
@@ -21,11 +21,11 @@ export default function Home () {
     })
 
     return (
-        <section className="md:w-[90%] w-full lg:w-[92%] p-4 md:space-y-3 space-y-3">
+        <section className="md:w-[90%] w-full lg:w-[92%] p-4 md:space-y-12 space-y-6">
             <div className="flex space-x-3">
                 <div className="flex space-x-3 md:hidden">
                     <button className="text-gray-400 text-xl">
-                        <i class="fa-solid fa-bars"></i>
+                        <i className="fa-solid fa-bars"></i>
                     </button>
                     <img src="/logo.svg" alt="" className="w-6" />
                 </div>

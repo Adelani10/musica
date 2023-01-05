@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function NewReleases ({item}) {
     return (
-            <Link to="" key={item.id} className="flex flex-col space-y-1 min-w-[40%] ">
+            <Link to="" key={item.id} className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] ">
                 <img src={item.image} alt="" className=" rounded-2xl md:w-auto " />
                 <article>
                     <h1 className="text-gray-400 md:text-xs text-xl tracking-tighter">{item.title}</h1>

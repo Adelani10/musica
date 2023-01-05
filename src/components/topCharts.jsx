@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-export default function TopCharts ({item, key}) {
+export default function TopCharts ({item}) {
     return (
-            <div key={key} className="flex justify-between md:items-center bg-[#1A1E1F] px-4 py-3 md:py-2 min-w-[85%] md:min-w-0 md:w-full rounded-xl items-start ">
+            <div key={item.id} className="flex justify-between md:items-center bg-[#1A1E1F] px-4 py-3 md:py-2 min-w-[85%] md:min-w-0 md:w-full rounded-xl items-start ">
 
                 <div className="flex flex-col md:flex-row md:space-x-3 space-y-1 md:space-y-0 ">
                     <div className="md:w-10 w-[60%] lg:w-auto">
