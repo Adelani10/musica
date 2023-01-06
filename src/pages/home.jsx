@@ -22,7 +22,7 @@ export default function Home () {
     })
 
     return (
-        <main className=" md:pl-[10%] lg:pl-[8%] md:space-y-12 space-y-6">
+        <main className="max-h-screen md:pl-[10%] lg:pl-[8%] p-4 md:space-y-12 space-y-6">
             <header className="flex flex-col md:flex-row md:space-x-6 space-y-5 md:space-y-0 md:items-center ">
                 <img src="/frame1.svg" alt="" className="w-[60%] hidden md:inline-block" />
                 <img src="/frameSc.svg" alt="" className="w-full md:hidden " />

@@ -7,7 +7,7 @@ export default function Nav () {
     const {topChartsData, newReleasesData, showSideBar} = useContext(AddContext)
 
     return (
-        <div className="flex space-x-4 md:pl-[10%] lg:pl-[8%]">
+        <div className="flex space-x-4 px-4 pt-4 md:pl-[10%] lg:pl-[8%]">
             <div className="flex space-x-3 md:hidden">
                 <button onClick={showSideBar} className="text-gray-400 text-xl">
                     <i className="fa-solid fa-bars"></i>

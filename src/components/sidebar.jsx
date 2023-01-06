@@ -49,7 +49,7 @@ export default function Sidebar () {
             </aside>
 
             <aside 
-                className={` ${isShown ? "translate-x-0" : ""} flex flex-col sticky md:hidden p-12 space-y-16 pt-6 pb-0 bottom-0 left-0 top-0 h-full w-[85%] bg-red-200 duration-700 ease-in-out -translate-x-full z-50`}>
+                className={` ${isShown ? "translate-x-[]" : ""} flex flex-col sticky md:hidden p-12 space-y-16 pt-6  bottom-0 left-0 top-0 h-full w-[85%]  bg-[#1A1E1F] duration-700 ease-in-out -translate-x-full z-50`}>
 
                  <button onClick={removeSideBar} className=" rounded-full bg-[#FACD66] h-8 w-8 flex justify-center items-center text-2xl self-end">
                     <i className="fa-solid fa-close"></i>
@@ -59,7 +59,6 @@ export default function Sidebar () {
                     {mobileSideBarElements}
                  </article>
 
-                 {/* bg-[#1A1E1F] */}
 
 
 
