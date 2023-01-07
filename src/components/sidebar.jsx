@@ -49,7 +49,7 @@ export default function Sidebar () {
             </aside>
 
             <aside 
-                className={` ${isShown ? "translate-x-[0%]" : ""} flex flex-col md:sticky fixed md:hidden p-12 space-y-16 pt-6 bottom-0 left-0 top-0 h-full w-[85%]  bg-[#1A1E1F] duration-700 ease-in-out -translate-x-full z-50`}>
+                className={` ${isShown ? "translate-x-0" : "-translate-x-full"} flex flex-col md:sticky fixed md:hidden p-12 space-y-16 pt-6 bottom-0 left-0 top-0 h-full w-[85%]  bg-[#1A1E1F] transition-all duration-700 ease-in-out z-50`}>
 
                  <button onClick={removeSideBar} className=" rounded-full bg-[#FACD66] h-8 w-8 flex justify-center items-center text-2xl self-end">
                     <i className="fa-solid fa-close"></i>
