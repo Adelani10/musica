@@ -8,6 +8,9 @@ import Videos from './pages/videos'
 import Profile from './pages/profile'
 import LogOut from './pages/logOut'
 import Nav from './components/nav'
+import Tomorrow from './pages/tomorrow'
+import RandB from './pages/rnb'
+import GoldenAge from './pages/goldenAge'
 
 function App() {
 
@@ -16,6 +19,9 @@ function App() {
       <Nav/>
       <Routes>
           <Route exact path='/' element={<Home/>}/>
+          <Route exact path='/home/tomorrow' element={<Tomorrow/>}/>
+          <Route exact path='/home/rnb' element={<RandB/>}/>
+          <Route exact path='/home/goldenAge' element={<GoldenAge/>}/>
           <Route path='/playlist' element={<Playlist/>}/>
           <Route path='/radio' element={<Radio/>}/>
           <Route path='/videos' element={<Videos/>}/>

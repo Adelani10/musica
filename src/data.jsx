@@ -6,21 +6,24 @@ const data = [
         image: "/firstCategory.svg",
         category: "Golden age of 80s",
         artist: "Sean Swadder",
-        time: "2:34:45"
+        time: "2:34:45",
+        path: "goldenAge"
     },
     {
         id: 2,
         image: "/secondCategory.svg",
         category: "Raggae 'n' blues",
         artist: "DJ YK mule",
-        time: "1:02:42"
+        time: "1:02:42",
+        path: "rnb"
     },
     {
         id: 3,
         image: "/thirdCategory.svg",
         category: "Tommorow's tunes",
         artist: "Obi Datti",
-        time: "2:01:25"
+        time: "2:01:25",
+        path: "tomorrow"
     },
 ]
 
