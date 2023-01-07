@@ -11,7 +11,7 @@ export default function NowPlaying () {
     }
 
     return (
-            <footer className="sticky bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
+            <footer className="sm:sticky fixed bottom-0 border-t np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
                 <section className="space-x-2 flex md:w-[20%] items-center">
                     <img src="/NP.svg" alt="" className="w-10 rounded-xl" />
                     

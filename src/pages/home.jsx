@@ -7,7 +7,7 @@ import Nav from "../components/nav";
 
 export default function Home () {
 
-    const {topChartsData, newReleasesData, showSideBar} = useContext(AddContext)
+    const {topChartsData, newReleasesData} = useContext(AddContext)
 
     const topChartsElements = topChartsData.map(item => {
         return (
@@ -22,7 +22,7 @@ export default function Home () {
     })
 
     return (
-        <main className="max-h-screen md:pl-[10%] lg:pl-[8%] p-4 md:space-y-12 space-y-6">
+        <main className=" md:pl-[10%] lg:pl-[8%] p-4 md:space-y-12 space-y-6">
             <header className="flex flex-col md:flex-row md:space-x-6 space-y-5 md:space-y-0 md:items-center ">
                 <img src="/frame1.svg" alt="" className="w-[60%] hidden md:inline-block" />
                 <img src="/frameSc.svg" alt="" className="w-full md:hidden " />
@@ -38,7 +38,7 @@ export default function Home () {
                 </div>
             </header>
 
-            <section className="space-y-1">
+            <section className="space-y-1 pb-24 sm:pb-0">
                 <h1 className="text-white text-lg font-bold tracking-wider">
                     New Releases
                 </h1>
