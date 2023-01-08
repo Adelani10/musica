@@ -11,13 +11,13 @@ export default function TomorrowTune ({item}) {
                 </button>
             </div>
 
-            <div className="flex flex-col w-1/3 space-x-0 md:space-x-10 md:flex-row items-start md:items-center">
-                <h3 className="md:w-[70%] w-auto">{item.title} ~ <span>{item.subtitle}</span> </h3>
+            <div className="flex flex-col md:w-1/3 w-3/4 space-x-0 md:space-x-10 md:flex-row items-start md:items-center">
+                <h3 className="md:w-[70%] text-sm font-bold w-auto">{item.title} ~ <span>{item.subtitle}</span> </h3>
                 <h3 className="">{item.type}</h3>
             </div>
 
-            <div className="flex flex-col w-1/3  space-x-0 md:space-x-24 md:flex-row items-end md:items-center justify-end">
-                <h3 className="md:order-first order-last">4:04</h3>
+            <div className="flex flex-col md:w-1/3 space-x-0 md:space-x-24 md:flex-row items-end md:items-center justify-end">
+                <h3 className="md:order-first order-last">{item.duration}</h3>
                 <button className="text-[#FACD66]">
                     <i className="fa-solid fa-ellipsis-vertical"></i>
                 </button>
