@@ -23,4 +23,11 @@
     cursor: pointer;
     border: 0.5 solid white;
 }
-
+.tomorrow{
+    background-image: linear-gradient(to bottom, transparent, black), url('/Lead-image.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 60%;
+    background-size: cover;
+    background-color: #1D2123;
+    background-blend-mode: overlay;
+}

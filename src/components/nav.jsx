@@ -7,7 +7,7 @@ export default function Nav () {
     const {showSideBar} = useContext(AddContext)
 
     return (
-        <div className="flex space-x-4 px-4 pt-4 md:pl-[10%] lg:pl-[8%]">
+        <div className="flex space-x-4 md:space-x-0 ">
             <div className="flex space-x-3 md:hidden">
                 <button onClick={showSideBar} className="text-gray-400 text-3xl">
                     <i className="fa-solid fa-bars"></i>
@@ -16,7 +16,7 @@ export default function Nav () {
             </div>
             <input 
                 type="text" 
-                className=" bg-[#1D2123] h-10 w-full px-3 rounded-sm text-sm tracking-widest text-white text-right md:text-left" 
+                className=" bg-transparent h-10 w-full px-3 rounded-sm text-sm tracking-widest text-white text-right md:text-left" 
                 placeholder="Search"
             />
         </div>

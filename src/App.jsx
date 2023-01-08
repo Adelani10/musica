@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="App h-screen overflow-y-scroll font-quickSand container mx-auto relative bg-[#1D2123] text-white md:space-y-2">
-      <Nav/>
       <Routes>
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/home/tomorrow' element={<Tomorrow/>}/>

@@ -7,7 +7,7 @@ export default function TopCharts ({item}) {
 
                 <div className="flex flex-col md:flex-row md:space-x-2 space-y-2 md:space-y-0">
                     <div className="md:w-10 w-[60%] lg:w-auto">
-                        <img src={item.image} alt="" className="w-full" />
+                        <img src={item.image} alt="" className="w-full rounded-2xl" />
                     </div>
                     
 

@@ -3,7 +3,7 @@ import React from "react";
 const data = [
     {
         id: 1,
-        image: "/firstCategory.svg",
+        image: "/topChart-cover-1.jpg",
         category: "Golden age of 80s",
         artist: "Sean Swadder",
         time: "2:34:45",
@@ -11,7 +11,7 @@ const data = [
     },
     {
         id: 2,
-        image: "/secondCategory.svg",
+        image: "/topChart-cover-3.jpg",
         category: "Raggae 'n' blues",
         artist: "DJ YK mule",
         time: "1:02:42",
@@ -19,7 +19,7 @@ const data = [
     },
     {
         id: 3,
-        image: "/thirdCategory.svg",
+        image: "/topChart-cover-2.jpg",
         category: "Tommorow's tunes",
         artist: "Obi Datti",
         time: "2:01:25",
@@ -30,45 +30,60 @@ const data = [
 const newReleases = [
     {
         id: 1,
-        image: "/rec1.svg",
+        image: "/img-1.jpg",
         title: "Life in a bubble",
         subtitle: "Devan",
+        type: "Single",
+        duration: "4:17"
     },
     {
         id: 2,
-        image: "/rec2.svg",
+        image: "/img-2.jpg",
         title: "Mountain",
         subtitle: "Kriks",
+        type: "Freestyle",
+        duration: "2:30"
     },
     {
         id: 3,
-        image: "/rec3.svg",
+        image: "/img-3.jpg",
         title: "Limits",
         subtitle: "John Dillion",
+        type: "Single",
+        duration: "2:02"
     },
     {
         id: 4,
-        image: "/rec4.svg",
+        image: "/img-4.jpg",
         title: "Black",
         subtitle: "Ameed",
+        type: "Freestyle",
+        duration: "3:23"
     },
     {
         id: 5,
-        image: "/rec5.svg",
+        image: "/img-5.jpg",
         title: "Cancelled",
         subtitle: "emeri",
+        type: "Single",
+        duration: "4:50"
+
     },
     {
         id: 6,
-        image: "/rec6.svg",
+        image: "/img-6.jpg",
         title: "Nomad",
         subtitle: "Macron eli",
+        type: "EP",
+        duration: "11:37"
     },
     {
         id: 7,
-        image: "/rec7.svg",
+        image: "/img-7.jpg",
         title: "Blind",
         subtitle: "Wiz zee",
+        type: "Album",
+        duration: "23:10"
     },
 ]
 
