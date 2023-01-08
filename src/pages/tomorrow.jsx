@@ -46,7 +46,7 @@ export default function Tomorrow () {
                 </div>
             </section>
 
-            <section className="flex flex-col space-y-2 pb-4 ">
+            <section className="flex flex-col space-y-2 pb-28 md:pb-4 ">
                 {tomorrowTuneElements}
             </section>
         </main>
