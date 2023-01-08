@@ -11,7 +11,7 @@ export default function NowPlaying () {
     }
 
     return (
-            <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
+            <footer className="fixed sm:sticky bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
                 <section className="space-x-2 flex md:w-[20%] items-center">
                     <img src="/NP.svg" alt="" className="w-10 rounded-xl" />
                     
@@ -34,7 +34,7 @@ export default function NowPlaying () {
                             <i className="fa-solid fa-backward-step"></i>
                         </button>
 
-                        <button className="flex justify-center items-center h-5 w-5 p-4 rounded-full bg-[#FACD66]">
+                        <button className="flex justify-center text-xl md:text-sm items-center h-5 w-5 md:p-4 p-5 rounded-full bg-[#FACD66]">
                             <i className="fa-solid fa-play"></i>
                         </button>
 
