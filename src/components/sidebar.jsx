@@ -16,7 +16,7 @@ export default function Sidebar () {
 
     return (
         <>
-            <aside className="md:h-full absolute top-0 left-0 hidden w-[10%] lg:w-[8%] md:flex flex-col items-center pt-4 space-y-8">
+            <aside className="md:h-full fixed top-0 left-0 bottom-0 h-full hidden w-[10%] lg:w-[8%] md:flex flex-col items-center pt-4 space-y-8">
                 <img src="/logo.svg" alt="" className="w-8" />
 
                 <div className="bg-[#1A1E1F] p-2 flex flex-col space-y-4 rounded-full ">

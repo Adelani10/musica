@@ -22,13 +22,13 @@ export default function Home () {
     })
 
     return (
-        <main className=" md:pl-[10%] lg:pl-[8%] p-4 md:space-y-12 space-y-6">
+        <main className=" md:pl-[10%] lg:pl-[8%] p-4 md:px-8 md:space-y-12 space-y-6">
             <Nav/>
             <header className="flex flex-col md:flex-row md:space-x-6 space-y-5 md:space-y-0 md:items-center ">
-                <img src="/frame-desktop.jpg" alt="" className="w-[60%] rounded-3xl hidden md:inline-block" />
+                <img src="/frame-desktop.jpg" alt="" className="w-[60%] lg:w-[40%]  object-cover rounded-3xl hidden md:inline-block" />
                 <img src="/frame-mobile.jpg" alt="" className="w-full md:hidden rounded-3xl" />
 
-                <div className=" md:w-[40%] w-full space-y-1">
+                <div className=" md:w-[40%] lg:w-[60%] w-full space-y-1">
                     <h1 className="text-white text-lg font-bold tracking-wider">
                         Top Charts
                     </h1>

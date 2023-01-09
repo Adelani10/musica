@@ -14,7 +14,7 @@ import GoldenAge from './pages/goldenAge'
 function App() {
 
   return (
-    <div className="App h-screen overflow-y-scroll font-quickSand container mx-auto relative bg-[#1D2123] text-white">
+    <div className="App h-screen overflow-y-scroll font-quickSand  relative bg-[#1D2123] text-white">
       <Routes>
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/home/tomorrow' element={<Tomorrow/>}/>
