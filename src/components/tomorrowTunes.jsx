@@ -1,13 +1,16 @@
 import React from "react";
+import { useState } from "react";
 
 export default function TomorrowTune ({item}) {
+    const [isLiked, setIsLiked] = useState(false)
     return (
         <main className="bg-[#33373B] flex text-white items-center justify-between md:justify-start text-xs px-2 pr-4 py-1 rounded-2xl">
 
             <div className="space-x-4 md:w-1/3 flex items-center">
                 <img src={item.image} alt="" className="w-10 h-10 rounded-lg" />
-                <button className="hidden md:inline-block">
-                    <i className="fa-regular fa-heart"></i>
+                <button className="hidden md:inline-block" onClick={() => setIsLiked(!isLiked)}>
+                    {isLiked ? <i className="fa-solid fa-heart text-red-600"></i>
+                        : <i className="fa-regular fa-heart text-red-600"></i>}
                 </button>
             </div>
 

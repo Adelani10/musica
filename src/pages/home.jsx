@@ -4,10 +4,11 @@ import { AddContext } from "../context";
 import { useContext } from "react";
 import NewReleases from "../components/newReleases";
 import Nav from "../components/nav";
+import Popular from "../components/popularInYourArea";
 
 export default function Home () {
 
-    const {topChartsData, newReleasesData} = useContext(AddContext)
+    const {topChartsData, newReleasesData, popularData, playListItems} = useContext(AddContext)
 
     const topChartsElements = topChartsData.map(item => {
         return (
@@ -20,6 +21,13 @@ export default function Home () {
             <NewReleases item={item} key={item.id} />
         )
     })
+
+    const popularElements = popularData.map((item) => {
+        return (
+            <Popular item={item} key={item.id} />
+        )
+    })
+
 
     return (
         <main className=" md:pl-[10%] lg:pl-[8%] p-4 md:px-8 md:space-y-12 space-y-6">
@@ -53,10 +61,9 @@ export default function Home () {
                     Popular in your Area
                 </h1>
                 <article className="flex overflow-x-scroll md:overflow-x-auto md:space-x-8 space-x-4">
-                    {newReleasesElements}
+                    {popularElements}
                 </article>
             </section>
-
         </main>
     )
 }

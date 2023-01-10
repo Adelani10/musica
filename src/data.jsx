@@ -34,7 +34,8 @@ const newReleases = [
         title: "Life in a bubble",
         subtitle: "Devan",
         type: "Single",
-        duration: "4:17"
+        duration: "4:17",
+        isFavorited: false
     },
     {
         id: 2,
@@ -42,7 +43,8 @@ const newReleases = [
         title: "Mountain",
         subtitle: "Kriks",
         type: "Freestyle",
-        duration: "2:30"
+        duration: "2:30",
+        isFavorited: false
     },
     {
         id: 3,
@@ -50,7 +52,8 @@ const newReleases = [
         title: "Limits",
         subtitle: "John Dillion",
         type: "Single",
-        duration: "2:02"
+        duration: "2:02",
+        isFavorited: false
     },
     {
         id: 4,
@@ -58,7 +61,8 @@ const newReleases = [
         title: "Black",
         subtitle: "Ameed",
         type: "Freestyle",
-        duration: "3:23"
+        duration: "3:23",
+        isFavorited: false
     },
     {
         id: 5,
@@ -66,7 +70,8 @@ const newReleases = [
         title: "Cancelled",
         subtitle: "emeri",
         type: "Single",
-        duration: "4:50"
+        duration: "4:50",
+        isFavorited: false
 
     },
     {
@@ -75,7 +80,8 @@ const newReleases = [
         title: "Nomad",
         subtitle: "Macron eli",
         type: "EP",
-        duration: "11:37"
+        duration: "11:37",
+        isFavorited: false
     },
     {
         id: 7,
@@ -83,7 +89,74 @@ const newReleases = [
         title: "Blind",
         subtitle: "Wiz zee",
         type: "Album",
-        duration: "23:10"
+        duration: "23:10",
+        isFavorited: false
+    },
+]
+const popularTunes = [
+    {
+        id: 1,
+        image: "/img-7.jpg",
+        title: "Life in a bubble",
+        subtitle: "Devan",
+        type: "Single",
+        duration: "4:17",
+        isFavorited: false
+    },
+    {
+        id: 2,
+        image: "/img-6.jpg",
+        title: "Mountain",
+        subtitle: "Kriks",
+        type: "Freestyle",
+        duration: "2:30",
+        isFavorited: false
+    },
+    {
+        id: 3,
+        image: "/img-5.jpg",
+        title: "Limits",
+        subtitle: "John Dillion",
+        type: "Single",
+        duration: "2:02",
+        isFavorited: false
+    },
+    {
+        id: 4,
+        image: "/img-4.jpg",
+        title: "Black",
+        subtitle: "Ameed",
+        type: "Freestyle",
+        duration: "3:23",
+        isFavorited: false
+    },
+    {
+        id: 5,
+        image: "/img-3.jpg",
+        title: "Cancelled",
+        subtitle: "emeri",
+        type: "Single",
+        duration: "4:50",
+        isFavorited: false
+
+    },
+    {
+        id: 6,
+        image: "/img-2.jpg",
+        title: "Nomad",
+        subtitle: "Macron eli",
+        type: "EP",
+        duration: "11:37",
+        isFavorited: false
+    },
+    {
+        id: 7,
+        image: "/img-1.jpg",
+        title: "Blind",
+        subtitle: "Wiz zee",
+        type: "Album",
+        duration: "23:10",
+        isFavorited: false
     },
 ]
 
@@ -126,4 +199,8 @@ const sb = [
     },
 ]
 
-export {data, newReleases, sb}
+
+
+
+
+export {data, newReleases, sb, popularTunes}

@@ -3,24 +3,17 @@ import { Link } from 'react-router-dom'
 import { useContext } from "react";
 import { AddContext } from "../context";
 
-export default function NewReleases ({item}) {
+export default function Popular ({item}) {
 
-    const {handleFav, addToPlayList, playListItems, removeFromPlaylist} = useContext(AddContext)
-
+    const {handlePopFav} = useContext(AddContext)
     return (
             <Link to="" key={item.id} className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] ">
                 <div className="relative">
                     <img src={item.image} alt="" className=" rounded-2xl w-full md:w-auto " />
-
-
-                    <button onClick={()=> handleFav(item.id)} className="absolute top-1 right-2 text-2xl" >
-
-                        {item.isFavorited ? <i className="fa-solid fa-heart text-[#FACD66]" onClick={()=> removeFromPlaylist(item.id)}></i>
-                            : <i className="fa-regular fa-heart text-gray-400" onClick={() => addToPlayList(item)}></i>}
-
+                    <button onClick={()=> handlePopFav(item.id)} className="absolute top-1 right-2" >
+                        {item.isFavorited ? <i className="fa-solid fa-heart text-[#FACD66]"></i>
+                            : <i className="fa-regular fa-heart text-gray-400"></i>}
                     </button>
-
-
                 </div>
                 
                 <section className="flex justify-between">
