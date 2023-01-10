@@ -7,7 +7,7 @@ export default function PlaylistCard ({item}) {
     const {removeFromPlaylist} = useContext(AddContext)
 
     return (
-            <div className="relative w-full h-52 md:h-auto rounded-xl">
+            <div className="relative w-full h-64 sm:h-auto rounded-xl">
                 <img src={item.image} alt="" className="h-full w-full rounded-xl" />
 
                 <div className=" absolute tracking-tighter -space-y-2 flex flex-col items-start left-2 bottom-0">
