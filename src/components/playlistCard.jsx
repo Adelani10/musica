@@ -20,7 +20,7 @@ export default function PlaylistCard ({item}) {
                 </button>
 
 
-                <button onClick={() => removeFromPlaylist(item.id)} className="absolute top-0 right-2 sm:text-3xl lg:text-4xl text-[#FACD66] text-lg">
+                <button onClick={() => removeFromPlaylist(item.id)} className="absolute top-0 right-2 sm:text-3xl lg:text-4xl text-[#FACD66] text-2xl">
                      <i className="fa-solid fa-heart"></i>
                 </button>
             </div>
