@@ -27,10 +27,10 @@ function Context (props) {
     }
      
     function get () {
-        return localStorage.getItem("newRelease") ? JSON.parse(localStorage.getItem("newRelease")) : newReleasesData
+        return localStorage.getItem("newRelease") ? JSON.parse(localStorage.getItem("newRelease")) : newReleases
     }
 
-    function generateHowFar( result, main){
+    function generateHowFar(result, main){
         return result * 100/ main
     }
     
