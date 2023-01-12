@@ -1,13 +1,15 @@
 import React from "react";
 import { AddContext } from "../context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function PlaylistCard ({item}) {
+
+    const [isEntered, setIsEntered] = useState(false)
 
     const {removeFromPlaylist} = useContext(AddContext)
 
     return (
-            <div className="relative w-full h-64 sm:h-auto rounded-xl">
+            <div onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)} className="relative w-full h-64 sm:h-auto rounded-xl">
                 <img src={item.image} alt="" className="h-full w-full rounded-xl" />
 
                 <div className=" absolute tracking-tighter -space-y-2 flex flex-col items-start left-2 bottom-0">
@@ -20,9 +22,11 @@ export default function PlaylistCard ({item}) {
                 </button>
 
 
-                <button onClick={() => removeFromPlaylist(item.id)} className="absolute top-0 right-2 sm:text-3xl lg:text-4xl text-[#FACD66] text-2xl">
-                     <i className="fa-solid fa-heart"></i>
-                </button>
+                { isEntered && 
+                    <button onClick={() => removeFromPlaylist(item.id)}
+                     className="absolute top-0 right-2 sm:text-xl lg:text-3xl text-red-500 text-2xl">
+                     <i className="fa-solid fa-circle-minus"></i>
+                </button>}
             </div>
                 
     )

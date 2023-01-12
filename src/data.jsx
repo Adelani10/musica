@@ -95,7 +95,7 @@ const newReleases = [
 ]
 const popularTunes = [
     {
-        id: 1,
+        id: "1",
         image: "/img-7.jpg",
         title: "Life in a bubble",
         subtitle: "Devan",
@@ -104,7 +104,7 @@ const popularTunes = [
         isFavorited: false
     },
     {
-        id: 2,
+        id: "2",
         image: "/img-6.jpg",
         title: "Mountain",
         subtitle: "Kriks",
@@ -113,7 +113,7 @@ const popularTunes = [
         isFavorited: false
     },
     {
-        id: 3,
+        id: "3",
         image: "/img-5.jpg",
         title: "Limits",
         subtitle: "John Dillion",
@@ -122,7 +122,7 @@ const popularTunes = [
         isFavorited: false
     },
     {
-        id: 4,
+        id: "4",
         image: "/img-4.jpg",
         title: "Black",
         subtitle: "Ameed",
@@ -131,7 +131,7 @@ const popularTunes = [
         isFavorited: false
     },
     {
-        id: 5,
+        id: "5",
         image: "/img-3.jpg",
         title: "Cancelled",
         subtitle: "emeri",
@@ -141,7 +141,7 @@ const popularTunes = [
 
     },
     {
-        id: 6,
+        id: "6",
         image: "/img-2.jpg",
         title: "Nomad",
         subtitle: "Macron eli",
@@ -150,7 +150,7 @@ const popularTunes = [
         isFavorited: false
     },
     {
-        id: 7,
+        id: "7",
         image: "/img-1.jpg",
         title: "Blind",
         subtitle: "Wiz zee",

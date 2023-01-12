@@ -9,38 +9,26 @@ const AddContext = React.createContext()
 
 function Context (props) {
     const [topChartsData, setTopChartsData] = useState(data)
-    const [newReleasesData, setNewReleasesData] = useState(newReleases)
+    const [newReleasesData, setNewReleasesData] = useState(get())
     const [popularData, setPopularData] = useState(popularTunes)
     const [sideBarData, setSideBarData] = useState(sb)
     const [playListItems, setPlayListItems] = useState(getItems())
     const [value, setValue] = useState(0)
     const [random, setRandom] = useState(randomNumber())
     const [isShown, setIsShown] = useState(false)
-    const [isEntered, setIsEntered] = useState(false)
 
     useEffect(()=> {
         localStorage.setItem("playList", JSON.stringify(playListItems))
-    }, [playListItems])
+        localStorage.setItem("newRelease", JSON.stringify(newReleasesData))
+    }, [playListItems, newReleasesData])
 
     function getItems () {
         return localStorage.getItem("playList") ? JSON.parse(localStorage.getItem("playList")) : []
     }
-
-
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '1191a9fedfmshd85d8cda7af90f1p19e596jsn97149b5aa0ad',
-            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-        }
-    };
-
-    // useEffect(()=> {
-    //     fetch('https://spotify23.p.rapidapi.com/albums/?ids=3IBcauSj5M2A6lTeffJzdv', options)
-    //     .then(response => response.json())
-    //     .then(response => console.log(response))
-    //     .catch(err => console.error(err));
-    // }, [])
+     
+    function get () {
+        return localStorage.getItem("newRelease") ? JSON.parse(localStorage.getItem("newRelease")) : newReleasesData
+    }
 
     function generateHowFar( result, main){
         return result * 100/ main
@@ -66,18 +54,23 @@ function Context (props) {
         setIsShown(false)
     }
 
-    function handleMouseEnter () {
-        setIsEntered(true)
-    }
-    function handleMouseLeave () {
-        setIsEntered(false)
-    }
-
-    function handleFav (id) {
+    function addFav (id) {
         const newData = newReleasesData.map(item => {
             if (id === item.id){
                 return {
-                    ...item, isFavorited: !item.isFavorited
+                    ...item, isFavorited: true
+                }
+            }
+            return item
+        })
+        setNewReleasesData(newData)
+    }
+
+    function removeFav (id) {
+        const newData = newReleasesData.map(item => {
+            if (id === item.id){
+                return {
+                    ...item, isFavorited: false
                 }
             }
             return item
@@ -127,11 +120,9 @@ function Context (props) {
             showSideBar,
             removeSideBar,
             sideBarData,
-            handleFav,
+            removeFav,
+            addFav,
             handlePopFav,
-            handleMouseEnter,
-            handleMouseLeave,
-            isEntered,
             addToPlayList,
             removeFromPlaylist
 
