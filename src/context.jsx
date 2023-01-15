@@ -4,6 +4,7 @@ import { data } from "./data";
 import { newReleases } from "./data";
 import { sb } from "./data";
 import { popularTunes } from "./data";
+import { radioStations } from "./data";
 
 const AddContext = React.createContext()
 
@@ -11,15 +12,25 @@ function Context (props) {
     const [topChartsData, setTopChartsData] = useState(data)
     const [newReleasesData, setNewReleasesData] = useState(get())
     const [popularData, setPopularData] = useState(popularTunes)
+    const [radioData, setRadioData] = useState(radioStations)
     const [sideBarData, setSideBarData] = useState(sb)
     const [playListItems, setPlayListItems] = useState(getItems())
     const [value, setValue] = useState(0)
     const [random, setRandom] = useState(randomNumber())
     const [isShown, setIsShown] = useState(false)
+    const [isRadioOn, setIsRadioOn] = useState(false)
+    const [radioStation, setRadioStation] = useState(0)
+
+    const presentRadioStation = radioData[radioStation]
+    
+    // fetch('https://theaudiodb.p.rapidapi.com/searchalbum.php?s=daft_punk', options)
+    //     .then(response => response.json())
+    //     .then(response => console.log(response))
+    //     .catch(err => console.error(err));
 
     useEffect(()=> {
         localStorage.setItem("playList", JSON.stringify(playListItems))
-        localStorage.setItem("newRelease", JSON.stringify(newReleasesData))
+        localStorage.setItem("nR", JSON.stringify(newReleasesData))
     }, [playListItems, newReleasesData])
 
     function getItems () {
@@ -27,7 +38,7 @@ function Context (props) {
     }
      
     function get () {
-        return localStorage.getItem("newRelease") ? JSON.parse(localStorage.getItem("newRelease")) : newReleases
+        return localStorage.getItem("nR") ? JSON.parse(localStorage.getItem("nR")) : newReleases
     }
 
     function generateHowFar(result, main){
@@ -105,12 +116,48 @@ function Context (props) {
         setPlayListItems(newItem)
     }
 
+    function radioOn () {
+        setIsRadioOn(true)
+    }
+
+    function radioOff () {
+        setIsRadioOn(false)
+    }
+
+    function nextStation () {
+        
+        setRadioStation(prev => {
+            if (prev <= 20) {
+                return prev + 1
+            }
+            else {
+                return 0
+            }
+        })
+    }
+
+    function prevStation () {
+        
+        setRadioStation(prev => {
+            if (prev <= 0) {
+                return 21
+            }
+            else {
+                return prev - 1
+            }
+        })
+    }
+
+    function setPresentStation (id) {
+        setRadioStation(id)
+    }
 
     return (
         <AddContext.Provider value={{
             topChartsData,
             newReleasesData,
             popularData,
+            radioData,
             playListItems,
             value,
             handleChange,
@@ -124,7 +171,14 @@ function Context (props) {
             addFav,
             handlePopFav,
             addToPlayList,
-            removeFromPlaylist
+            removeFromPlaylist,
+            isRadioOn,
+            radioOn,
+            radioOff,
+            presentRadioStation,
+            nextStation, 
+            prevStation,
+            setPresentStation
 
         }}>
             {props.children}

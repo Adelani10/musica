@@ -24,7 +24,7 @@ export default function Playlist () {
                 <span className="pl-3"><Link to="/" className="text-sky-400 text-xl">Add Songs</Link></span>
             </h1>
             :
-            <div className="sm:grid sm:grid-cols-3 md:grid-cols-5 sm:gap-4 sm:gap-y-4 flex flex-col space-y-3 sm:space-y-0 pb-28 sm:pb-0">
+            <div className="sm:grid sm:grid-cols-3 px-4 sm:px-0 md:grid-cols-5 sm:gap-4 sm:gap-y-4 flex flex-col space-y-3 sm:space-y-0 pb-28 sm:pb-0">
                 {playListElements}
             </div>}
 

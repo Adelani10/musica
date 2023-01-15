@@ -17,7 +17,7 @@ export default function PlaylistCard ({item}) {
                     <h5 className="text-[10px]">{item.subtitle}</h5>
                 </div>
 
-                <button className="flex justify-center absolute bottom-3 right-2 sm:text-xl text-sm items-center h-5 w-5 p-4 sm:p-5 rounded-full bg-[#FACD66]">
+                <button className="flex justify-center absolute bottom-3 right-2 text-xl items-center sm:h-5 sm:w-5 h-7 w-7 p-6 sm:p-5 rounded-full bg-[#FACD66]">
                      <i className="fa-solid fa-play"></i>
                 </button>
 

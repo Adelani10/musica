@@ -12,12 +12,13 @@ export default function NewReleases ({item}) {
     return (
             <Link to="" onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)} key={item.id} className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] ">
                 <div className="relative">
-                    <img src={item.image} alt="" className=" rounded-2xl w-full md:w-auto " />
+                    
+                    <img src={item.image} alt="" className=" rounded-2xl w-full md:w-auto" />
 
 
                     {isEntered && <div>
                         {item.isFavorited ? <button onClick={()=> removeFav(item.id)} className="absolute top-0 right-2 text-2xl sm:text-lg">
-                            <i className="fa-solid fa-heart text-[#FACD66]" onClick={()=> removeFromPlaylist()}></i>
+                            <i className="fa-solid fa-heart text-[#FACD66]" onClick={()=> removeFromPlaylist(item.id)}></i>
                         </button>
                         :
                         <button onClick={()=> addFav(item.id)} className="absolute top-0 right-2 text-2xl sm:text-lg">

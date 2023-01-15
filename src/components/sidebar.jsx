@@ -6,7 +6,7 @@ import MobileSideBar from "./mobileSideBar";
 
 export default function Sidebar () {
 
-    const {removeSideBar, sideBarData, isShown} = useContext(AddContext)
+    const {removeSideBar, sideBarData, isShown, radioOn, radioOff} = useContext(AddContext)
 
     const mobileSideBarElements = sideBarData.map(item => {
         return (
@@ -15,35 +15,35 @@ export default function Sidebar () {
     })
 
     return (
-        <>
+        <section>
             <aside className="md:h-full fixed top-0 left-0 bottom-0 h-full hidden w-[10%] lg:w-[8%] md:flex flex-col items-center pt-4 space-y-8">
                 <img src="/logo.svg" alt="" className="w-8" />
 
                 <div className="bg-[#1A1E1F] p-2 flex flex-col space-y-4 rounded-full ">
-                    <Link to='/'>
-                        <img src="/Home.svg" alt="" />
+                    <Link to='/' onClick={radioOff}>
+                        <img src="/icons/Home.svg" alt="" />
                     </Link>
 
-                    <Link to='/playlist'>
-                        <img src="/pl.svg" alt="" />
+                    <Link to='/playlist' onClick={radioOff}>
+                        <img src="/icons/pl.svg" alt="" />
                     </Link>
 
-                    <Link to='/radio'>
-                        <img src="/radio.svg" alt="" />
+                    <Link to='/radio' onClick={radioOn}>
+                        <img src="/icons/radio.svg" alt="" />
                     </Link>
 
-                    <Link to='/videos'>
-                        <img src="/videos.svg" alt="" />
+                    <Link to='/videos' onClick={radioOff}>
+                        <img src="/icons/videos.svg" alt="" />
                     </Link>
                 </div>
 
                 <div className="bg-[#1A1E1F] px-2 py-2 flex flex-col space-y-4 rounded-full ">
-                    <Link to='/profile'>
-                        <img src="/profile.svg" alt="" />
+                    <Link to='/profile' onClick={radioOff}>
+                        <img src="/icons/profile.svg" alt="" />
                     </Link>
 
-                    <Link to='/logOut'>
-                        <img src="/Logout.svg" alt="" />
+                    <Link to='/logOut' onClick={radioOff}>
+                        <img src="/icons/Logout.svg" alt="" />
                     </Link>
                 </div>
             </aside>
@@ -60,7 +60,7 @@ export default function Sidebar () {
                  </article>
             </aside>
 
-        </>
+        </section>
         
     )
 }

@@ -39,7 +39,7 @@ export default function Tomorrow () {
                         </button>
 
                         <button className="flex space-x-2 min-w-[25%] md:min-w-0 items-center justify-center px-3 py-2 rounded-full bg-[#33373B] ">
-                            <img src="/Heart.svg" alt="" />
+                            <img src="/icons/Heart.svg" alt="" />
                             <h3 className="text-xs">Like</h3>
                         </button>
                     </div>
