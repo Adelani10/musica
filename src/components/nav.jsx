@@ -12,7 +12,7 @@ export default function Nav () {
                 <button onClick={showSideBar} className="text-gray-400 text-3xl">
                     <i className="fa-solid fa-bars"></i>
                 </button>
-                <img src="/logo.svg" alt="" className="w-6" />
+                <img src="https://res.cloudinary.com/dksvvhuj2/image/upload/v1673962514/musica/others/logo_n6e56x.svg" alt="" className="w-6" />
             </div>
             <input 
                 type="text" 

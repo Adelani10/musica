@@ -24,7 +24,7 @@
     border: 0.5 solid white;
 }
 .tomorrow, .radio{
-    background-image: linear-gradient(to bottom, transparent, black), url('Lead-image.svg');
+    background-image: linear-gradient(to bottom, transparent, black), url('https://res.cloudinary.com/dksvvhuj2/image/upload/v1673962515/musica/others/Lead-image_lu4bb4.svg');
     background-repeat: no-repeat;
     background-position: 0% 60%;
     background-size: cover;

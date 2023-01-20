@@ -20,6 +20,7 @@ function Context (props) {
     const [isShown, setIsShown] = useState(false)
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
+    const [favStations, setFavStations] = useState(getStations())
 
     const presentRadioStation = radioData[radioStation]
     
@@ -31,7 +32,12 @@ function Context (props) {
     useEffect(()=> {
         localStorage.setItem("playList", JSON.stringify(playListItems))
         localStorage.setItem("nR", JSON.stringify(newReleasesData))
-    }, [playListItems, newReleasesData])
+        localStorage.setItem("stations", JSON.stringify(favStations))
+    }, [playListItems, newReleasesData, favStations])
+
+    function getStations () {
+        return localStorage.getItem("stations") ? JSON.parse(localStorage.getItem("stations")) : []
+    }
 
     function getItems () {
         return localStorage.getItem("playList") ? JSON.parse(localStorage.getItem("playList")) : []
@@ -152,6 +158,23 @@ function Context (props) {
         setRadioStation(id)
     }
 
+    function handleFaved (newItem) {
+        setFavStations(prev => {
+            return [...prev, newItem]
+        })
+    }
+
+    function favRemoved (id) {
+        const newItem = favStations.filter(item => {
+            if (item.id !== id){
+                return item
+            }
+        })
+        setFavStations(newItem)
+    }
+
+    console.log(favStations)
+
     return (
         <AddContext.Provider value={{
             topChartsData,
@@ -178,7 +201,10 @@ function Context (props) {
             presentRadioStation,
             nextStation, 
             prevStation,
-            setPresentStation
+            setPresentStation,
+            handleFaved,
+            favRemoved,
+            favStations
 
         }}>
             {props.children}

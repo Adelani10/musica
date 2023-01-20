@@ -38,7 +38,7 @@ export default function NowPlaying () {
         <>
             {isRadioOn === false ? <footer className="fixed sm:sticky bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
                 <section className="space-x-2 flex md:w-[15%] items-center">
-                    <img src="/NP.svg" alt="" className="w-10 rounded-xl" />
+                    <img src="https://res.cloudinary.com/dksvvhuj2/image/upload/v1673962516/musica/others/NP_h8jukw.svg" alt="" className="w-10 rounded-xl" />
                     
                     <div className="flex flex-col">
                         <h1 className="text-gray-300 text-sm">
