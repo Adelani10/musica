@@ -17,8 +17,6 @@ export default function Tomorrow () {
         )
     })
 
-    console.log(favStations)
-
     return (
         <main className="md:pl-[10%] lg:pl-[8%] radio md:space-y-8 p-4 pb-0 sm:px-8 space-y-6 min-h-full">
             <Nav/>
@@ -35,7 +33,7 @@ export default function Tomorrow () {
                     <div className="space-x-2 w-full flex text-sm">
                         <button onClick={() => setFavPagePresent(!favPagePresent)} className={`flex ${favPagePresent ? "" : "space-x-2"} min-w-[25%] md:min-w-0 items-center justify-center px-3 py-2 rounded-full bg-[#33373B] hover:bg-gray-300 hover:text-black `}>
                             <img src="https://res.cloudinary.com/dksvvhuj2/image/upload/v1673961486/musica/icons/Heart_h5ssmk.svg" alt="" className={`${favPagePresent ? "hidden" : "inline-block"}`}/>
-                            <h3 className="text-xs">{favPagePresent ? "Back to List" : "Favorite"}</h3>
+                            <h3 className="text-xs">{favPagePresent ? "Back to List" : "Favorites"}</h3>
                         </button>
                     </div>
                 </div>
@@ -53,9 +51,9 @@ export default function Tomorrow () {
                         )
                     })
                     :
-                    <h3 className="text-xl">
+                    <button onClick={()=> setFavPagePresent(false)} className="text-xl text-center text-sky-400">
                         Add Favorite Stations!
-                    </h3>
+                    </button>
                 }
             </section>}
         </main>

@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AddContext } from "../context";
 
 export default function FavStation ({item}) {
-    const {radioOn, setPresentStation} = useContext(AddContext)
+    const {radioOn, setPresentStation, favRemoved} = useContext(AddContext)
 
     function handleClick () {
         radioOn()
@@ -11,7 +11,7 @@ export default function FavStation ({item}) {
     }
 
     return (
-        <div className="bg-[#33373B] text-white p-2 flex justify-between items-center rounded-2xl focus:border-x-2 border-white">
+        <div className="bg-[#33373B] text-white p-2 flex justify-between items-center rounded-2xl border-white md:w-3/4 md:mx-auto md:pr-8">
 
             <button onClick={handleClick} className="space-x-2 flex items-center min-w-[85%]">
                 <div className="bg-white h-16 w-16 rounded-lg">
@@ -25,9 +25,9 @@ export default function FavStation ({item}) {
                 
             </button>
 
-            <div className="text-xl">
-                    <i onClick={() => favRemoved(item.id)} className="fa-solid fa-heart text-red-600"></i>
-            </div> 
+            <button onClick={() => favRemoved(item.id)} className="text-xl">
+                    <i className="fa-solid fa-heart text-red-600"></i>
+            </button> 
             
         </div>
     )

@@ -23,7 +23,7 @@ export default function TopCharts ({item}) {
                 </Link>
 
 
-                <button onClick={()=> setIsLiked(!isLiked)} className="border w-8 h-8 sm:w-6 sm:h-6 sm:text-xs lg:text-lg rounded-full border-gray-500" >
+                <button onClick={()=> setIsLiked(!isLiked)} className="border w-8 h-8 sm:w-6 sm:h-6 sm:text-xs lg:text-lg lg:w-8 lg:h-8 rounded-full border-gray-500 flex items-center justify-center" >
                     {isLiked ? 
                         <i className="fa-solid fa-heart text-[#FACD66]"></i> : 
                         <i className="fa-regular fa-heart text-[#FACD66]"></i>}

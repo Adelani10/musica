@@ -9,7 +9,7 @@ export default function Popular ({item}) {
     const {handlePopFav} = useContext(AddContext)
 
     return (
-            <Link to="" onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)} key={item.id} className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] ">
+            <Link to="" onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)} key={item.id} className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] sm:min-w-[25%] ">
                 <div className="relative">
                     <img src={item.image} alt="" className=" rounded-2xl w-full md:w-auto " />
 

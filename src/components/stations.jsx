@@ -29,7 +29,7 @@ export default function Station ({item}) {
 
             <div className="text-xl" onClick={() => setIsLiked(!isLiked)}>
                 {isLiked ? 
-                    <i onClick={() => favRemoved(item.id)} className="fa-solid fa-heart text-red-600"></i>
+                    <i onClick={() => favRemoved(item.id)} className="fa-solid fa-heart text-red-600 hidden"></i>
                     : 
                     <i onClick={() => handleFaved(item)} className="fa-regular fa-heart text-red-600"></i>}
             </div> 
