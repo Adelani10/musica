@@ -191,13 +191,7 @@ const sb = [
         icon: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673961484/musica/icons/profile_x8mxsb.svg" ,
         title: "Profile",
         path: "profile"
-    },
-    {
-        id: 6,
-        icon: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673961484/musica/icons/Logout_gmwvkl.svg",
-        title: "Log Out",
-        path: "logOut"
-    },
+    }
 ]
 
 

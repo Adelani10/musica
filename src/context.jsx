@@ -21,7 +21,11 @@ function Context (props) {
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
     const [favStations, setFavStations] = useState(getStations())
-
+    const [showFooter, setShowFooter] = useState(true)
+    const [isLogClicked, setIsLogClicked] = useState(false)
+    
+    console.log(isLogClicked)
+    
     const presentRadioStation = radioData[radioStation]
     
     // fetch('https://theaudiodb.p.rapidapi.com/searchalbum.php?s=daft_punk', options)
@@ -173,7 +177,21 @@ function Context (props) {
         setFavStations(newItem)
     }
 
-    console.log(favStations)
+    function hideFooter () {
+        setShowFooter(false)
+    }
+
+    function addFooter () {
+        setShowFooter(true)
+    }
+
+    function logClicked () {
+        setIsLogClicked(true)
+    }
+
+    function logRemoved () {
+        setIsLogClicked(false)
+    }
 
     return (
         <AddContext.Provider value={{
@@ -204,7 +222,13 @@ function Context (props) {
             setPresentStation,
             handleFaved,
             favRemoved,
-            favStations
+            favStations,
+            showFooter,
+            addFooter,
+            hideFooter,
+            isLogClicked,
+            logClicked,
+            logRemoved
 
         }}>
             {props.children}

@@ -5,16 +5,20 @@ import { AddContext } from "../context";
 
 export default function MobileSideBar ({item}) {
 
-    const {removeSideBar, radioOn, radioOff} = useContext(AddContext)
+    const {removeSideBar, addFooter, hideFooter, radioOff} = useContext(AddContext)
 
     function handleClick () {
         removeSideBar()
-        if (item.title === "Radio"){
-            radioOn()
-        }else {
-            radioOff()
+        radioOff()
+        if (item.title === "logOut" || "profile"){
+             hideFooter()
+        }
+        else {
+            addFooter() 
         }
     }
+
+    
 
     
     return (
