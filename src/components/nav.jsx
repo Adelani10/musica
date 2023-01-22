@@ -19,6 +19,7 @@ export default function Nav () {
                 className=" bg-transparent h-10 w-full px-3 rounded-sm text-sm tracking-widest text-white text-right md:text-left" 
                 placeholder="Search"
             />
+            
         </div>
     )
 }

@@ -22,16 +22,18 @@ function Context (props) {
     const [radioStation, setRadioStation] = useState(0)
     const [favStations, setFavStations] = useState(getStations())
     const [showFooter, setShowFooter] = useState(true)
+    const [incorrect, setIncorrect] = useState(false)
     const [isLogClicked, setIsLogClicked] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [formData, setFormData] = useState({
+        username: "",
+        password: ""
+    })
     
+    console.log(formData)
     console.log(isLogClicked)
-    
+
     const presentRadioStation = radioData[radioStation]
-    
-    // fetch('https://theaudiodb.p.rapidapi.com/searchalbum.php?s=daft_punk', options)
-    //     .then(response => response.json())
-    //     .then(response => console.log(response))
-    //     .catch(err => console.error(err));
 
     useEffect(()=> {
         localStorage.setItem("playList", JSON.stringify(playListItems))
@@ -193,6 +195,32 @@ function Context (props) {
         setIsLogClicked(false)
     }
 
+    function handleLogIn () {
+        if (formData.username && formData.password){
+            setIsLoggedIn(true)
+            setIsLogClicked(false)
+            setIncorrect(false)
+        }
+        else {
+            setIncorrect(true)
+        }
+    }
+
+    function handleLogOut () {
+        setIsLoggedIn(false)
+        setIsLogClicked(false)
+    }
+
+    function handleForm (e) {
+        const {type, value, name} = e.target
+        setFormData(prev => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
     return (
         <AddContext.Provider value={{
             topChartsData,
@@ -228,7 +256,13 @@ function Context (props) {
             hideFooter,
             isLogClicked,
             logClicked,
-            logRemoved
+            logRemoved,
+            isLoggedIn,
+            handleLogIn,
+            handleLogOut,
+            handleForm,
+            formData,
+            incorrect
 
         }}>
             {props.children}

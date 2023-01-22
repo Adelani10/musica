@@ -14,6 +14,7 @@ export default function Sidebar () {
         hideFooter, 
         radioOff,
         logClicked,
+        handleLogIn
     } = useContext(AddContext)
 
     const mobileSideBarElements = sideBarData.map(item => {
