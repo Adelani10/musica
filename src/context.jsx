@@ -30,9 +30,6 @@ function Context (props) {
         password: ""
     })
     
-    console.log(formData)
-    console.log(isLogClicked)
-
     const presentRadioStation = radioData[radioStation]
 
     useEffect(()=> {
@@ -209,6 +206,10 @@ function Context (props) {
     function handleLogOut () {
         setIsLoggedIn(false)
         setIsLogClicked(false)
+        setFormData({
+            username: "",
+            password: ""
+        })
     }
 
     function handleForm (e) {

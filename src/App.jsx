@@ -28,7 +28,9 @@ function App() {
 
   if (isLogClicked) {
         return (
-            <main className="text-black flex justify-center h-screen items-center w-full bg-stone-300 ">
+            <main className="text-black relative flex justify-center h-screen items-center w-full bg-stone-300 ">
+
+              <img src="https://res.cloudinary.com/dksvvhuj2/image/upload/v1673962514/musica/others/logo_n6e56x.svg" alt="" className=" sm:w-16 w-1/6 lg:w-36 absolute left-4 top-4" />
 
               {isLoggedIn ? 
               

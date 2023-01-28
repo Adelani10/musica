@@ -31,7 +31,6 @@ export default function Sidebar () {
     function footerAbsent () {
         radioOff()
         hideFooter()
-
     }
 
     return (
