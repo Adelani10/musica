@@ -1,17 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { data } from "./data";
-import { newReleases } from "./data";
+import { data} from "./data";
 import { sb } from "./data";
-import { popularTunes } from "./data";
 import { radioStations } from "./data";
 
 const AddContext = React.createContext()
 
 function Context (props) {
+    const [isPaused, setIsPaused] = useState(true)
     const [topChartsData, setTopChartsData] = useState(data)
-    const [newReleasesData, setNewReleasesData] = useState(get())
-    const [popularData, setPopularData] = useState(popularTunes)
+    const [newReleasesData, setNewReleasesData] = useState([])
+    const [popularData, setPopularData] = useState([])
     const [radioData, setRadioData] = useState(radioStations)
     const [sideBarData, setSideBarData] = useState(sb)
     const [playListItems, setPlayListItems] = useState(getItems())
@@ -20,8 +19,9 @@ function Context (props) {
     const [isShown, setIsShown] = useState(false)
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
+    const [tuneIndex, setTuneIndex] = useState(11)
     const [favStations, setFavStations] = useState(getStations())
-    const [showFooter, setShowFooter] = useState(true)
+    const [showFooter, setShowFooter] = useState(false)
     const [incorrect, setIncorrect] = useState(false)
     const [isLogClicked, setIsLogClicked] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -29,14 +29,40 @@ function Context (props) {
         username: "",
         password: ""
     })
-    
     const presentRadioStation = radioData[radioStation]
+    const whichTune = newReleasesData[tuneIndex]
+    const [audio, setAudio] = useState("xyz");
 
+    console.log(audio)
+    console.log(whichTune)
+    console.log(tuneIndex)
+    
     useEffect(()=> {
         localStorage.setItem("playList", JSON.stringify(playListItems))
-        localStorage.setItem("nR", JSON.stringify(newReleasesData))
         localStorage.setItem("stations", JSON.stringify(favStations))
-    }, [playListItems, newReleasesData, favStations])
+
+        fetch ("https://musica-api.up.railway.app/new")
+        .then(res => res.json())
+        .then (data => {
+            const newArr = data.map((item, index) => {
+                return {
+                    id: index,
+                    artist: item.artist,
+                    duration: item.duration,
+                    title: item.title,
+                    cover: item.cover,
+                    audio: item.audio,
+                    isFavorited: false
+                }
+            })
+
+            setNewReleasesData(newArr)
+        })
+
+        fetch ("https://musica-api.up.railway.app/popular")
+        .then(res => res.json())
+        .then (data => setPopularData(data))
+        }, [playListItems, favStations])
 
     function getStations () {
         return localStorage.getItem("stations") ? JSON.parse(localStorage.getItem("stations")) : []
@@ -44,10 +70,6 @@ function Context (props) {
 
     function getItems () {
         return localStorage.getItem("playList") ? JSON.parse(localStorage.getItem("playList")) : []
-    }
-     
-    function get () {
-        return localStorage.getItem("nR") ? JSON.parse(localStorage.getItem("nR")) : newReleases
     }
 
     function generateHowFar(result, main){
@@ -62,6 +84,7 @@ function Context (props) {
     function handleChange (e) {
         setValue(e.target.valueAsNumber)
     }
+
     function getBackgroundSize () {
         return { backgroundSize: `${value * 100 / 10}% 100%`}
     }
@@ -153,6 +176,47 @@ function Context (props) {
             }
             else {
                 return prev - 1
+            }
+        })
+    }
+
+    function handlePlayPause ()  {
+        setIsPaused(!isPaused)
+
+        if (isPaused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      };
+
+    function setPresentTuneFromNew (id) {
+        setIsPaused(false)
+        setTuneIndex(id)
+        setShowFooter(true)
+        setAudio(new Audio(whichTune.audio))
+
+        if (isPaused) {
+            audio.play();
+          } else {
+            audio.pause();
+        }
+    }
+
+
+    function setPresentTuneFromPopular (id) {
+        setShowFooter(true)
+        setIsPaused(false)
+
+        if (isPaused) {
+            audio.play();
+          } else {
+            audio.pause();
+        }
+
+        popularData.map(item => {
+            if (item.id === id){
+                setWhichTune(item)
             }
         })
     }
@@ -263,8 +327,13 @@ function Context (props) {
             handleLogOut,
             handleForm,
             formData,
-            incorrect
-
+            incorrect,
+            setPresentTuneFromNew,
+            setPresentTuneFromPopular,
+            whichTune,
+            isPaused,
+            handlePlayPause,
+            audio
         }}>
             {props.children}
         </AddContext.Provider>

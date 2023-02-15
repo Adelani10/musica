@@ -5,11 +5,12 @@ import { AddContext } from "../context";
 export default function Station ({item}) {
     const [isLiked, setIsLiked] = useState(false)
 
-    const {radioOn, setPresentStation, favRemoved, handleFaved} = useContext(AddContext)
+    const {radioOn, setPresentStation, addFooter, favRemoved, handleFaved} = useContext(AddContext)
 
     function handleClick () {
         radioOn()
         setPresentStation(item.id)
+        addFooter()
     }
 
     return (

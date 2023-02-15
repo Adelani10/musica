@@ -57,7 +57,7 @@ export default function Profile () {
                 </div>
             </div>
 
-            <div className="space-y-8 flex flex-col">
+            {isLoggedIn && <div className="space-y-8 flex flex-col">
                 <h5 className="text-center tracking-widest md:text-xl">
                     Wanna Edit Profile ?
                 </h5>
@@ -91,7 +91,7 @@ export default function Profile () {
                     </div>
                 </article>
                 
-            </div>
+            </div>}
 
         </section>
     )

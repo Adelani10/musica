@@ -3,7 +3,6 @@ import { AddContext } from "../context";
 import { useContext, useState } from "react";
 
 export default function NowPlaying () {
-    const [isPaused, setIsPaused] = useState(false)
     const [volume, setVolume] = useState(0)
 
     const {
@@ -15,7 +14,10 @@ export default function NowPlaying () {
             presentRadioStation, 
             nextStation,
             prevStation,
-            showFooter
+            showFooter,
+            whichTune,
+            isPaused,
+            handlePlayPause
         } = useContext(AddContext)
 
     function handleVolumeChange(e) {
@@ -40,13 +42,13 @@ export default function NowPlaying () {
             <section>
                 {isRadioOn === false ? <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
                     <section className="space-x-2 flex md:w-[15%] items-center">
-                        <img src="https://res.cloudinary.com/dksvvhuj2/image/upload/v1673962516/musica/others/NP_h8jukw.svg" alt="" className="w-10 rounded-xl" />
+                        <img src={whichTune.cover} alt="" className="w-10 rounded-xl" />
                         
                         <div className="flex flex-col">
                             <h1 className="text-gray-300 text-sm">
-                                Seasons in
+                                {whichTune.title}
                             </h1>
-                            <h5 className="text-xs text-gray-500">James</h5>
+                            <h5 className="text-xs text-gray-400">{whichTune.artist}</h5>
                         </div>
                         
                     </section>
@@ -61,8 +63,12 @@ export default function NowPlaying () {
                                 <i className="fa-solid fa-backward-step"></i>
                             </button>
     
-                            <button onClick={() => setIsPaused(!isPaused) } className="flex justify-center text-xl md:text-sm items-center h-5 w-5 md:p-4 p-5 rounded-full bg-[#FACD66]">
-                                {!isPaused ? <i className="fa-solid fa-play"></i>
+                            <button 
+                                onClick={()=> {
+                                    handlePlayPause()
+                                }} 
+                                className="flex justify-center text-xl md:text-sm items-center h-5 w-5 md:p-4 p-5 rounded-full bg-[#FACD66]">
+                                {isPaused ? <i className="fa-solid fa-play"></i>
                                 :<i className="fa-solid fa-pause"></i>}
                             </button>
     

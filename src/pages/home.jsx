@@ -50,12 +50,12 @@ export default function Home () {
                 <h1 className="text-white text-lg font-bold tracking-wider">
                     New Releases
                 </h1>
-                <article className="flex overflow-x-scroll md:overflow-x-auto md:space-x-8 space-x-4">
+                <article className="flex overflow-x-scroll md:overflow-x-auto md:space-x-6 space-x-4">
                     {newReleasesElements}
                 </article>
             </section>
 
-            <section className="space-y-1 pb-24 sm:pb-0">
+            <section className="space-y-1 pb-24 ">
                 <h1 className="text-white text-lg font-bold tracking-wider">
                     Popular in your Area
                 </h1>
