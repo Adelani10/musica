@@ -68,8 +68,8 @@ export default function NowPlaying () {
                                     handlePlayPause()
                                 }} 
                                 className="flex justify-center text-xl md:text-sm items-center h-5 w-5 md:p-4 p-5 rounded-full bg-[#FACD66]">
-                                {isPaused ? <i className="fa-solid fa-play"></i>
-                                :<i className="fa-solid fa-pause"></i>}
+                                {isPaused ? <i className="fa-solid fa-pause"></i>
+                                :<i className="fa-solid fa-play"></i>}
                             </button>
     
                             <button className=" text-lg md:text-auto">

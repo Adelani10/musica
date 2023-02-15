@@ -19,7 +19,8 @@ function Context (props) {
     const [isShown, setIsShown] = useState(false)
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
-    const [tuneIndex, setTuneIndex] = useState(11)
+    const [tuneIndex, setTuneIndex] = useState(0)
+    const whichTune = newReleasesData[tuneIndex]
     const [favStations, setFavStations] = useState(getStations())
     const [showFooter, setShowFooter] = useState(false)
     const [incorrect, setIncorrect] = useState(false)
@@ -30,13 +31,9 @@ function Context (props) {
         password: ""
     })
     const presentRadioStation = radioData[radioStation]
-    const whichTune = newReleasesData[tuneIndex]
-    const [audio, setAudio] = useState("xyz");
+    const [audio, setAudio] = useState("");
 
-    console.log(audio)
-    console.log(whichTune)
-    console.log(tuneIndex)
-    
+
     useEffect(()=> {
         localStorage.setItem("playList", JSON.stringify(playListItems))
         localStorage.setItem("stations", JSON.stringify(favStations))
@@ -183,25 +180,27 @@ function Context (props) {
     function handlePlayPause ()  {
         setIsPaused(!isPaused)
 
-        if (isPaused) {
-          audio.play();
-        } else {
-          audio.pause();
+        if (isPaused === false) {
+            audio.play();
+          } 
+          else if (isPaused === true) {
+            audio.pause();
         }
       };
 
     function setPresentTuneFromNew (id) {
-        setIsPaused(false)
         setTuneIndex(id)
-        setShowFooter(true)
         setAudio(new Audio(whichTune.audio))
-
-        if (isPaused) {
+        setShowFooter(true)
+        if (isPaused === false) {
             audio.play();
-          } else {
+          } 
+          else if (isPaused === true) {
             audio.pause();
         }
     }
+
+    console.log(isPaused)
 
 
     function setPresentTuneFromPopular (id) {
@@ -333,7 +332,6 @@ function Context (props) {
             whichTune,
             isPaused,
             handlePlayPause,
-            audio
         }}>
             {props.children}
         </AddContext.Provider>
