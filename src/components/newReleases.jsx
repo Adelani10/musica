@@ -12,6 +12,7 @@ export default function NewReleases ({item}) {
             addFav, 
             addToPlayList, 
             setPresentTuneFromNew, 
+            // currentTune,
             removeFromPlaylist} = useContext(AddContext)
 
     return (
@@ -19,14 +20,13 @@ export default function NewReleases ({item}) {
                 onMouseEnter={() => setIsEntered(true)} 
                 onMouseLeave={() => setIsEntered(false)} 
                 onClick={() => {
-                    setPresentTuneFromNew(item.id)
+                    setPresentTuneFromNew(item.id);
                 }}
                 key={item.id} 
-                className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] sm:min-w-[25%] ">
-
+                className="flex cursor-pointer min-w-[40%] md:min-w-[15%] lg:min-w-[5%] sm:min-w-[25%] flex-col space-y-1"
+            >
                 <div className="relative">
-                    
-                    <img src={item.cover} alt="" className=" rounded-2xl h-32 lg:h-28 w-full sm:h-36" />
+                    <img src={item.cover} alt="" className="h-36 lg:h-28 w-full rounded-2xl" />
 
                     {isEntered && <div>
                         {item.isFavorited ? <button onClick={()=> removeFav(item.id)} className="absolute top-0 right-2 text-2xl sm:text-lg">
@@ -40,11 +40,7 @@ export default function NewReleases ({item}) {
 
                 </div>
                 
-                <section className="flex justify-between">
-                    <article>
-                        <h1 className="text-gray-400 md:text-xs text-lg tracking-tighter">{item.title}</h1>
-                    </article>
-                </section>
+                <h1 className="text-gray-400 md:text-xs text-lg tracking-tighter">{item.title}</h1>
                 
             </div>
     )

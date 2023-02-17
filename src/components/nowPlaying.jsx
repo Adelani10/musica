@@ -1,6 +1,7 @@
 import React from "react";
 import { AddContext } from "../context";
 import { useContext, useState } from "react";
+import ReactAudioPlayer from 'react-audio-player';
 
 export default function NowPlaying () {
     const [volume, setVolume] = useState(0)
@@ -17,7 +18,7 @@ export default function NowPlaying () {
             showFooter,
             whichTune,
             isPaused,
-            handlePlayPause
+            nextTuneFromNew
         } = useContext(AddContext)
 
     function handleVolumeChange(e) {
@@ -35,6 +36,11 @@ export default function NowPlaying () {
 
     const styles = {
         width: `${percent}%`
+    }
+
+    const tuneStyle = {
+        backgroundColor: "transparent",
+        color: "yellow"
     }
 
     if (showFooter) {
@@ -63,7 +69,7 @@ export default function NowPlaying () {
                                 <i className="fa-solid fa-backward-step"></i>
                             </button>
     
-                            <button 
+                            {/* <button 
                                 onClick={()=> {
                                     handlePlayPause()
                                 }} 
@@ -72,9 +78,19 @@ export default function NowPlaying () {
                                 :<i className="fa-solid fa-play"></i>}
                             </button>
     
-                            <button className=" text-lg md:text-auto">
+                            <button
+                                    onClick={nextTuneFromNew}
+                                    className=" text-lg md:text-auto">
                                 <i className="fa-solid fa-forward-step"></i>
-                            </button>
+                            </button> */}
+
+                            <audio
+                            onEnded={nextTuneFromNew}
+                            src={whichTune.audio}
+                            controlsList="nodownload"
+                            autoPlay
+                            controls
+                            />
     
                             <button className="hidden md:inline-block">
                                 <i className="fa-solid fa-repeat"></i>

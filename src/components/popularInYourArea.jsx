@@ -14,7 +14,7 @@ export default function Popular ({item}) {
                 onMouseLeave={() => setIsEntered(false)}
                 onClick={() => setPresentTuneFromPopular(item.id)} 
                 key={item.id}
-                className="flex flex-col space-y-1 min-w-[40%] md:min-w-[5%] sm:min-w-[25%] ">
+                className="flex flex-col space-y-1 min-w-[40%] md:min-w-[15%] lg:min-w-[5%] sm:min-w-[25%] ">
                 <div className="relative">
                     <img src={item.cover} alt="" className=" rounded-2xl h-32 lg:h-28 w-full sm:h-36" />
 
@@ -24,12 +24,7 @@ export default function Popular ({item}) {
                     </button>}
                 </div>
                 
-                <section className="flex justify-between">
-                    <article>
-                        <h1 className="text-gray-400 md:text-xs text-lg tracking-tighter">{item.title}</h1>
-                        <h4 className="text-gray-500 md:text-xs text-sm">{item.subtitle}</h4>
-                    </article>
-                </section>
+                <h1 className="text-gray-400 md:text-xs text-lg tracking-tighter">{item.title}</h1>
                 
             </Link>
     )

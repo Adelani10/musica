@@ -8,7 +8,7 @@ import Popular from "../components/popularInYourArea";
 
 export default function Home () {
 
-    const {topChartsData, newReleasesData, popularData, playListItems} = useContext(AddContext)
+    const {topChartsData, newReleasesData, popularData, showFooter} = useContext(AddContext)
 
     const topChartsElements = topChartsData.map(item => {
         return (
@@ -50,16 +50,16 @@ export default function Home () {
                 <h1 className="text-white text-lg font-bold tracking-wider">
                     New Releases
                 </h1>
-                <article className="flex overflow-x-scroll md:overflow-x-auto md:space-x-6 space-x-4">
+                <article className="flex overflow-x-scroll lg:space-x-6 space-x-4 scrollbar-hide">
                     {newReleasesElements}
                 </article>
             </section>
 
-            <section className="space-y-1 pb-24 ">
+            <section className={`space-y-1 ${showFooter ? "pb-24" : "" }  `}>
                 <h1 className="text-white text-lg font-bold tracking-wider">
                     Popular in your Area
                 </h1>
-                <article className="flex overflow-x-scroll md:overflow-x-auto md:space-x-8 space-x-4">
+                <article className="flex overflow-x-scroll lg:space-x-6 space-x-4 scrollbar-hide">
                     {popularElements}
                 </article>
             </section>

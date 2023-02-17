@@ -10,11 +10,11 @@ export default function PlaylistCard ({item}) {
 
     return (
             <div onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)} className="relative w-full h-64 sm:h-auto rounded-xl">
-                <img src={item.image} alt="" className="h-full w-full rounded-xl" />
+                <img src={item.cover} alt="" className="h-full w-full rounded-xl" />
 
-                <div className=" absolute tracking-tighter -space-y-2 flex flex-col items-start left-2 bottom-0">
+                <div className=" absolute tracking-tighter font-bold text-sky-900 -space-y-2 flex flex-col items-start left-2 bottom-0">
                     <h3 className="text-sm ">{item.title}</h3>
-                    <h5 className="text-[10px]">{item.subtitle}</h5>
+                    <h5 className="text-[10px]">{item.artist}</h5>
                 </div>
 
                 <button className="flex justify-center absolute bottom-3 right-2 text-xl items-center sm:h-5 sm:w-5 h-7 w-7 p-6 sm:p-5 rounded-full bg-[#FACD66]">

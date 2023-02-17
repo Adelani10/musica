@@ -31,7 +31,6 @@ function Context (props) {
         password: ""
     })
     const presentRadioStation = radioData[radioStation]
-    const [audio, setAudio] = useState("");
 
 
     useEffect(()=> {
@@ -190,34 +189,26 @@ function Context (props) {
 
     function setPresentTuneFromNew (id) {
         setTuneIndex(id)
-        setAudio(new Audio(whichTune.audio))
         setShowFooter(true)
-        if (isPaused === false) {
-            audio.play();
-          } 
-          else if (isPaused === true) {
-            audio.pause();
+    }
+
+    function nextTuneFromNew () {
+        if (tuneIndex < 9 && tuneIndex >= 0){
+            setTuneIndex(prev => prev + 1)
+        }
+        else{
+            setTuneIndex(0)
         }
     }
 
-    console.log(isPaused)
-
-
     function setPresentTuneFromPopular (id) {
-        setShowFooter(true)
-        setIsPaused(false)
-
-        if (isPaused) {
-            audio.play();
-          } else {
-            audio.pause();
-        }
-
         popularData.map(item => {
             if (item.id === id){
                 setWhichTune(item)
             }
         })
+
+        setShowFooter(true)
     }
 
     function setPresentStation (id) {
@@ -332,6 +323,9 @@ function Context (props) {
             whichTune,
             isPaused,
             handlePlayPause,
+            nextTuneFromNew,
+            // currentTune
+            // nextTuneFromPopular
         }}>
             {props.children}
         </AddContext.Provider>
