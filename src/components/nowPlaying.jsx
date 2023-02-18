@@ -17,8 +17,11 @@ export default function NowPlaying () {
             prevStation,
             showFooter,
             whichTune,
+            whichPopularTune,
             isPaused,
-            nextTuneFromNew
+            newClicked,
+            nextTuneFromNew,
+            nextTuneFromPopular
         } = useContext(AddContext)
 
     function handleVolumeChange(e) {
@@ -48,13 +51,13 @@ export default function NowPlaying () {
             <section>
                 {isRadioOn === false ? <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
                     <section className="space-x-2 flex md:w-[15%] items-center">
-                        <img src={whichTune.cover} alt="" className="w-10 rounded-xl" />
+                        <img src={newClicked ? whichTune.cover : whichPopularTune.cover} alt="" className="w-10 rounded-xl" />
                         
                         <div className="flex flex-col">
                             <h1 className="text-gray-300 text-sm">
-                                {whichTune.title}
+                                {newClicked ? whichTune.title : whichPopularTune.title}
                             </h1>
-                            <h5 className="text-xs text-gray-400">{whichTune.artist}</h5>
+                            <h5 className="text-xs text-gray-400">{newClicked ? whichTune.artist : whichPopularTune.artist}</h5>
                         </div>
                         
                     </section>
@@ -68,30 +71,15 @@ export default function NowPlaying () {
                             <button className="hidden md:inline-block">
                                 <i className="fa-solid fa-backward-step"></i>
                             </button>
-    
-                            {/* <button 
-                                onClick={()=> {
-                                    handlePlayPause()
-                                }} 
-                                className="flex justify-center text-xl md:text-sm items-center h-5 w-5 md:p-4 p-5 rounded-full bg-[#FACD66]">
-                                {isPaused ? <i className="fa-solid fa-pause"></i>
-                                :<i className="fa-solid fa-play"></i>}
-                            </button>
-    
-                            <button
-                                    onClick={nextTuneFromNew}
-                                    className=" text-lg md:text-auto">
-                                <i className="fa-solid fa-forward-step"></i>
-                            </button> */}
-
+ 
                             <audio
-                            onEnded={nextTuneFromNew}
-                            src={whichTune.audio}
+                            onEnded={newClicked ? nextTuneFromNew : nextTuneFromPopular}
+                            src={newClicked ? whichTune.audio : whichPopularTune.audio}
                             controlsList="nodownload"
                             autoPlay
                             controls
                             />
-    
+                
                             <button className="hidden md:inline-block">
                                 <i className="fa-solid fa-repeat"></i>
                             </button>

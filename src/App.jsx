@@ -11,6 +11,7 @@ import RandB from './pages/rnb'
 import GoldenAge from './pages/goldenAge'
 import { AddContext } from "./context";
 import { useContext } from "react";
+import PlaylistDissolved from './components/playListDissolved'
 
 function App() {
 
@@ -94,6 +95,7 @@ function App() {
             <Route exact path='/home/rnb' element={<RandB/>}/>
             <Route exact path='/home/goldenAge' element={<GoldenAge/>}/>
             <Route path='/playlist' element={<Playlist/>}/>
+            <Route path='/playlist/:playlistId' element={<PlaylistDissolved/>}/>
             <Route path='/radio' element={<Radio/>}/>
             <Route path='/videos' element={<Videos/>}/>
             <Route path='/profile' element={<Profile/>}/>

@@ -13,15 +13,18 @@ function Context (props) {
     const [popularData, setPopularData] = useState([])
     const [radioData, setRadioData] = useState(radioStations)
     const [sideBarData, setSideBarData] = useState(sb)
-    const [playListItems, setPlayListItems] = useState(getItems())
+    const [playListItems, setPlayListItems] = useState([])
     const [value, setValue] = useState(0)
     const [random, setRandom] = useState(randomNumber())
     const [isShown, setIsShown] = useState(false)
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
     const [tuneIndex, setTuneIndex] = useState(0)
+    const [popularTuneIndex, setPopularTuneIndex] = useState(0)
     const whichTune = newReleasesData[tuneIndex]
+    const whichPopularTune = popularData[popularTuneIndex]
     const [favStations, setFavStations] = useState(getStations())
+    const [newClicked, setNewClicked] = useState(false)
     const [showFooter, setShowFooter] = useState(false)
     const [incorrect, setIncorrect] = useState(false)
     const [isLogClicked, setIsLogClicked] = useState(false)
@@ -32,9 +35,8 @@ function Context (props) {
     })
     const presentRadioStation = radioData[radioStation]
 
-
     useEffect(()=> {
-        localStorage.setItem("playList", JSON.stringify(playListItems))
+        // localStorage.setItem("playList", JSON.stringify(playListItems))
         localStorage.setItem("stations", JSON.stringify(favStations))
 
         fetch ("https://musica-api.up.railway.app/new")
@@ -57,8 +59,26 @@ function Context (props) {
 
         fetch ("https://musica-api.up.railway.app/popular")
         .then(res => res.json())
-        .then (data => setPopularData(data))
-        }, [playListItems, favStations])
+        .then (data => {
+            const newArr = data.map((item, index) => {
+                return {
+                    id: index,
+                    artist: item.artist,
+                    duration: item.duration,
+                    title: item.title,
+                    cover: item.cover,
+                    audio: item.audio,
+                    isFavorited: false
+                }
+            })
+
+            setPopularData(newArr)
+        })
+
+        fetch ("https://musica-api.up.railway.app/playlist")
+        .then(res => res.json())
+        .then (data => setPlayListItems(data))
+        }, [favStations])
 
     function getStations () {
         return localStorage.getItem("stations") ? JSON.parse(localStorage.getItem("stations")) : []
@@ -176,18 +196,19 @@ function Context (props) {
         })
     }
 
-    function handlePlayPause ()  {
-        setIsPaused(!isPaused)
+    // function handlePlayPause ()  {
+    //     setIsPaused(!isPaused)
 
-        if (isPaused === false) {
-            audio.play();
-          } 
-          else if (isPaused === true) {
-            audio.pause();
-        }
-      };
+    //     if (isPaused === false) {
+    //         audio.play();
+    //       } 
+    //       else if (isPaused === true) {
+    //         audio.pause();
+    //     }
+    //   };
 
     function setPresentTuneFromNew (id) {
+        setNewClicked(true)
         setTuneIndex(id)
         setShowFooter(true)
     }
@@ -202,13 +223,18 @@ function Context (props) {
     }
 
     function setPresentTuneFromPopular (id) {
-        popularData.map(item => {
-            if (item.id === id){
-                setWhichTune(item)
-            }
-        })
-
+        setNewClicked(false)
+        setPopularTuneIndex(id)
         setShowFooter(true)
+    }
+
+    function nextTuneFromPopular () {
+        if (popularTuneIndex < 9 && popularTuneIndex >= 0){
+            setPopularTuneIndex(prev => prev + 1)
+        }
+        else{
+            setPopularTuneIndex(0)
+        }
     }
 
     function setPresentStation (id) {
@@ -321,11 +347,11 @@ function Context (props) {
             setPresentTuneFromNew,
             setPresentTuneFromPopular,
             whichTune,
+            whichPopularTune,
             isPaused,
-            handlePlayPause,
             nextTuneFromNew,
-            // currentTune
-            // nextTuneFromPopular
+            newClicked,
+            nextTuneFromPopular
         }}>
             {props.children}
         </AddContext.Provider>

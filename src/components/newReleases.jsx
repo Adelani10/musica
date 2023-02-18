@@ -12,7 +12,6 @@ export default function NewReleases ({item}) {
             addFav, 
             addToPlayList, 
             setPresentTuneFromNew, 
-            // currentTune,
             removeFromPlaylist} = useContext(AddContext)
 
     return (
