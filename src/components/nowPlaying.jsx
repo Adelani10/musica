@@ -7,10 +7,8 @@ export default function NowPlaying () {
     const [volume, setVolume] = useState(0)
 
     const {
-            percent, 
             handleChange, 
             value, 
-            getBackgroundSize, 
             isRadioOn,
             presentRadioStation, 
             nextStation,
@@ -18,6 +16,8 @@ export default function NowPlaying () {
             showFooter,
             whichTune,
             whichPopularTune,
+            whichPlaylistTune,
+            plClicked,
             isPaused,
             newClicked,
             nextTuneFromNew,
@@ -37,20 +37,12 @@ export default function NowPlaying () {
         }
     }
 
-    const styles = {
-        width: `${percent}%`
-    }
-
-    const tuneStyle = {
-        backgroundColor: "transparent",
-        color: "yellow"
-    }
-
     if (showFooter) {
         return (
             <section>
-                {isRadioOn === false ? <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-8 ">
-                    <section className="space-x-2 flex md:w-[15%] items-center">
+                {isRadioOn === false ? 
+                <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-6 ">
+                    <div className="space-x-2 flex items-center">
                         <img src={newClicked ? whichTune.cover : whichPopularTune.cover} alt="" className="w-10 rounded-xl" />
                         
                         <div className="flex flex-col">
@@ -59,56 +51,25 @@ export default function NowPlaying () {
                             </h1>
                             <h5 className="text-xs text-gray-400">{newClicked ? whichTune.artist : whichPopularTune.artist}</h5>
                         </div>
-                        
-                    </section>
+                    </div>
     
-                    <section className="flex flex-col space-y-3 items-center md:w-[50%]">
-                        <div className="flex self-end md:self-auto md:space-x-10 space-x-8 text-white">
-                            <button className="hidden md:inline-block">
-                                <i className="fa-solid fa-shuffle"></i>
-                            </button>
-    
-                            <button className="hidden md:inline-block">
-                                <i className="fa-solid fa-backward-step"></i>
-                            </button>
- 
-                            <audio
+                    <div className="flex flex-col space-y-3 items-center ">
+                        {!plClicked ? 
+                        <audio
                             onEnded={newClicked ? nextTuneFromNew : nextTuneFromPopular}
                             src={newClicked ? whichTune.audio : whichPopularTune.audio}
                             controlsList="nodownload"
                             autoPlay
                             controls
-                            />
-                
-                            <button className="hidden md:inline-block">
-                                <i className="fa-solid fa-repeat"></i>
-                            </button>
-                        </div>
-                        
-                        <div className="outer h-1 bg-neutral-300 hidden md:inline-block rounded-full w-full">
-                            <div className="inner h-full rounded-full bg-[#FACD66]" style={styles}>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section className="md:w-[20%] hidden md:flex items-center space-x-2">
-                        <button className="max-w-[15%] text-white">
-                           {volume === 0 ? <i className="fa-solid fa-volume-off"></i>
-                            : volume === 1 ? <i className="fa-solid fa-volume-low"></i> 
-                            : volume === 2 ? <i className="fa-solid fa-volume-high"></i>: ""}
-                        </button>
-    
-                        <input 
-                            type="range" 
-                            
-                            name="" id="" 
-                            min={0} max={10}
-                            value={value}
-                            onChange={handleVolumeChange}
-                            style={getBackgroundSize()}
-                            className="slider h-1 w-[85%] rounded-full bg-gray-300" 
                         />
-                    </section>
+                        :
+                        <audio
+                            src={whichPlaylistTune}
+                            controlsList="nodownload"
+                            autoPlay
+                            controls
+                        />}
+                    </div>
                 </footer>
                 :
                 <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-12 px-8 ">

@@ -15,7 +15,6 @@ function Context (props) {
     const [sideBarData, setSideBarData] = useState(sb)
     const [playListItems, setPlayListItems] = useState([])
     const [value, setValue] = useState(0)
-    const [random, setRandom] = useState(randomNumber())
     const [isShown, setIsShown] = useState(false)
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
@@ -23,8 +22,10 @@ function Context (props) {
     const [popularTuneIndex, setPopularTuneIndex] = useState(0)
     const whichTune = newReleasesData[tuneIndex]
     const whichPopularTune = popularData[popularTuneIndex]
+    const [whichPlaylistTune, setWhichPlaylistTune] = useState(null)
     const [favStations, setFavStations] = useState(getStations())
     const [newClicked, setNewClicked] = useState(false)
+    const [plClicked, setPlClicked] = useState(false)
     const [showFooter, setShowFooter] = useState(false)
     const [incorrect, setIncorrect] = useState(false)
     const [isLogClicked, setIsLogClicked] = useState(false)
@@ -88,21 +89,8 @@ function Context (props) {
         return localStorage.getItem("playList") ? JSON.parse(localStorage.getItem("playList")) : []
     }
 
-    function generateHowFar(result, main){
-        return result * 100/ main
-    }
-    
-    function randomNumber(){
-        return Math.floor(Math.random()* 99) + 1
-    }
-    const percent = generateHowFar(random, 100)
-
     function handleChange (e) {
         setValue(e.target.valueAsNumber)
-    }
-
-    function getBackgroundSize () {
-        return { backgroundSize: `${value * 100 / 10}% 100%`}
     }
 
     function showSideBar () {
@@ -196,19 +184,9 @@ function Context (props) {
         })
     }
 
-    // function handlePlayPause ()  {
-    //     setIsPaused(!isPaused)
-
-    //     if (isPaused === false) {
-    //         audio.play();
-    //       } 
-    //       else if (isPaused === true) {
-    //         audio.pause();
-    //     }
-    //   };
-
     function setPresentTuneFromNew (id) {
         setNewClicked(true)
+        setPlClicked(false)
         setTuneIndex(id)
         setShowFooter(true)
     }
@@ -224,7 +202,15 @@ function Context (props) {
 
     function setPresentTuneFromPopular (id) {
         setNewClicked(false)
+        setPlClicked(false)
         setPopularTuneIndex(id)
+        setShowFooter(true)
+    }
+
+    function setPresentTuneFromPlaylist (e) {
+        setPlClicked(true)
+        setWhichPlaylistTune(e.target.id)
+        console.log(e.target.id)
         setShowFooter(true)
     }
 
@@ -311,8 +297,6 @@ function Context (props) {
             playListItems,
             value,
             handleChange,
-            getBackgroundSize,
-            percent,
             isShown,
             showSideBar,
             removeSideBar,
@@ -346,12 +330,15 @@ function Context (props) {
             incorrect,
             setPresentTuneFromNew,
             setPresentTuneFromPopular,
+            setPresentTuneFromPlaylist,
             whichTune,
             whichPopularTune,
+            whichPlaylistTune,
             isPaused,
             nextTuneFromNew,
             newClicked,
-            nextTuneFromPopular
+            plClicked,
+            nextTuneFromPopular,
         }}>
             {props.children}
         </AddContext.Provider>

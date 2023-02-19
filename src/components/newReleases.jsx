@@ -25,7 +25,7 @@ export default function NewReleases ({item}) {
                 className="flex cursor-pointer min-w-[40%] md:min-w-[15%] lg:min-w-[5%] sm:min-w-[25%] flex-col space-y-1"
             >
                 <div className="relative">
-                    <img src={item.cover} alt="" className="h-36 lg:h-28 w-full rounded-2xl" />
+                    <img src={item.cover} alt={item.audio} className="h-36 lg:h-28 w-full rounded-2xl" />
 
                     {isEntered && <div>
                         {item.isFavorited ? <button onClick={()=> removeFav(item.id)} className="absolute top-0 right-2 text-2xl sm:text-lg">
