@@ -42,7 +42,7 @@ export default function NowPlaying () {
             <section>
                 {isRadioOn === false ? 
                 <footer className="fixed bottom-0 np w-full h-24 flex justify-between items-center md:px-4 px-6 ">
-                    <div className="space-x-2 flex items-center">
+                    {!plClicked ? <div className="space-x-2 flex items-center">
                         <img src={newClicked ? whichTune.cover : whichPopularTune.cover} alt="" className="w-10 rounded-xl" />
                         
                         <div className="flex flex-col">
@@ -52,6 +52,17 @@ export default function NowPlaying () {
                             <h5 className="text-xs text-gray-400">{newClicked ? whichTune.artist : whichPopularTune.artist}</h5>
                         </div>
                     </div>
+                    :
+                    <div className="space-x-2 flex items-center">
+                        <img src={whichPlaylistTune.cover} alt="" className="w-10 rounded-xl" />
+                        
+                        <div className="flex flex-col">
+                            <h1 className="text-gray-300 text-sm">
+                                {whichPlaylistTune.title}
+                            </h1>
+                            <h5 className="text-xs text-gray-400">{whichPlaylistTune.artist}</h5>
+                        </div>
+                    </div>}
     
                     <div className="flex flex-col space-y-3 items-center ">
                         {!plClicked ? 

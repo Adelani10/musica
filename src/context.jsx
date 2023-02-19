@@ -14,7 +14,6 @@ function Context (props) {
     const [radioData, setRadioData] = useState(radioStations)
     const [sideBarData, setSideBarData] = useState(sb)
     const [playListItems, setPlayListItems] = useState([])
-    const [value, setValue] = useState(0)
     const [isShown, setIsShown] = useState(false)
     const [isRadioOn, setIsRadioOn] = useState(false)
     const [radioStation, setRadioStation] = useState(0)
@@ -135,21 +134,6 @@ function Context (props) {
             return item
         })
         setPopularData(newData)
-    }
-
-    function addToPlayList (newItem) {
-        setPlayListItems(prev => {
-            return [...prev, newItem]
-        })
-    }
-
-    function removeFromPlaylist (id) {
-        const newItem = playListItems.filter(item => {
-            if(item.id !== id){
-                return item
-            }
-        })
-        setPlayListItems(newItem)
     }
 
     function radioOn () {
@@ -295,7 +279,6 @@ function Context (props) {
             popularData,
             radioData,
             playListItems,
-            value,
             handleChange,
             isShown,
             showSideBar,
@@ -304,8 +287,6 @@ function Context (props) {
             removeFav,
             addFav,
             handlePopFav,
-            addToPlayList,
-            removeFromPlaylist,
             isRadioOn,
             radioOn,
             radioOff,

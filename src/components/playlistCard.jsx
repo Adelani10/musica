@@ -1,13 +1,7 @@
 import React from "react";
-import { AddContext } from "../context";
-import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function PlaylistCard ({item}) {
-
-    const [isEntered, setIsEntered] = useState(false)
-
-    const {removeFromPlaylist} = useContext(AddContext)
 
     return (
             <Link 
@@ -24,13 +18,6 @@ export default function PlaylistCard ({item}) {
                 <button className="flex justify-center absolute bottom-3 right-2 text-xl items-center sm:h-5 sm:w-5 h-7 w-7 p-6 sm:p-5 rounded-full bg-[#FACD66]">
                      <i className="fa-solid fa-play"></i>
                 </button>
-
-
-                { isEntered && 
-                    <button onClick={() => removeFromPlaylist(item.id)}
-                     className="absolute top-0 right-2 sm:text-xl lg:text-3xl text-red-500 text-2xl">
-                     <i className="fa-solid fa-circle-minus"></i>
-                </button>}
             </Link>
                 
     )
