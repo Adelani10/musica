@@ -24,8 +24,9 @@ export default function Home() {
 
   return (
     <main className=" md:pl-[10%] lg:pl-[8%] p-4 md:px-8 md:space-y-3 space-y-3">
+
       <Nav />
-      <header className="flex flex-col sm:flex-row md:space-x-6 space-y-5 sm:space-y-0 sm:items-center h-[340px] ">
+      <header className="flex flex-col sm:flex-row md:space-x-6 space-y-5 sm:space-y-0 sm:items-center md:h-[340px] ">
         <img
           src="/landing.jpg"
           alt=""
@@ -35,7 +36,7 @@ export default function Home() {
         <img
           src="https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959797/musica/frames/frame-mobile_z2hjfu.jpg"
           alt=""
-          className="w-full sm:hidden rounded-3xl"
+          className="w-full h-[300px] sm:hidden rounded-3xl"
         />
 
         <div className=" md:w-[40%] lg:w-[50%] w-full space-y-1">
