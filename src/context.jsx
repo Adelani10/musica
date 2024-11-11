@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { data} from "./data";
+import { data, newReleases, popularTunes} from "./data";
 import { sb } from "./data";
 import { radioStations } from "./data";
 
@@ -9,8 +9,8 @@ const AddContext = React.createContext()
 function Context (props) {
     const [isPaused, setIsPaused] = useState(true)
     const [topChartsData, setTopChartsData] = useState(data)
-    const [newReleasesData, setNewReleasesData] = useState([])
-    const [popularData, setPopularData] = useState([])
+    const [newReleasesData, setNewReleasesData] = useState(newReleases)
+    const [popularData, setPopularData] = useState(popularTunes)
     const [radioData, setRadioData] = useState(radioStations)
     const [sideBarData, setSideBarData] = useState(sb)
     const [playListItems, setPlayListItems] = useState([])
@@ -38,24 +38,6 @@ function Context (props) {
     useEffect(()=> {
         // localStorage.setItem("playList", JSON.stringify(playListItems))
         localStorage.setItem("stations", JSON.stringify(favStations))
-
-        fetch ("https://musica-api.up.railway.app/new")
-        .then(res => res.json())
-        .then (data => {
-            const newArr = data.map((item, index) => {
-                return {
-                    id: index,
-                    artist: item.artist,
-                    duration: item.duration,
-                    title: item.title,
-                    cover: item.cover,
-                    audio: item.audio,
-                    isFavorited: false
-                }
-            })
-
-            setNewReleasesData(newArr)
-        })
 
         fetch ("https://musica-api.up.railway.app/popular")
         .then(res => res.json())

@@ -30,66 +30,94 @@ const data = [
 const newReleases = [
     {
         id: 1,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-1_socoe4.jpg",
-        title: "Life in a bubble",
-        subtitle: "Devan",
-        type: "Single",
+        artist: "davido",
         duration: "4:17",
+        title: "Life in a bubble",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-1_socoe4.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: 2,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-2_jt3cjj.jpg",
-        title: "Mountain",
-        subtitle: "Kriks",
-        type: "Freestyle",
+        artist: "don jazzy",
         duration: "2:30",
+        title: "Mountain",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-2_jt3cjj.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: 3,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-3_nakkh3.jpg",
-        title: "Limits",
-        subtitle: "John Dillion",
-        type: "Single",
+        artist: "wizkid",
         duration: "2:02",
+        title: "Limits",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-3_nakkh3.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: 4,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-4_zkf2sa.jpg",
-        title: "Black",
-        subtitle: "Ameed",
-        type: "Freestyle",
+        artist: "omah lay",
         duration: "3:23",
+        title: "Black",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-4_zkf2sa.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: 5,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-5_djbqbu.jpg",
-        title: "Cancelled",
-        subtitle: "emeri",
-        type: "Single",
+        artist: "rema",
         duration: "4:50",
+        title: "Cancelled",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-5_djbqbu.jpg",
+        audio: "",
         isFavorited: false
 
     },
     {
         id: 6,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-6_jpz3sa.jpg",
-        title: "Nomad",
-        subtitle: "Macron eli",
-        type: "EP",
+        artist: "lil kesh",
         duration: "11:37",
+        title: "Nomad",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-6_jpz3sa.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: 7,
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-7_dc9fof.jpg",
-        title: "Blind",
-        subtitle: "Wiz zee",
-        type: "Album",
+        artist: "patoranking",
         duration: "23:10",
+        title: "Blind",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-7_dc9fof.jpg",
+        audio: "",
+        isFavorited: false
+    },
+    {
+        id: 8,
+        artist: "ruger",
+        duration: "3:60",
+        title: "Completed",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-5_djbqbu.jpg",
+        audio: "",
+        isFavorited: false
+
+    },
+    {
+        id: 9,
+        artist: "lil frosh",
+        duration: "11:37",
+        title: "None of you",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-6_jpz3sa.jpg",
+        audio: "",
+        isFavorited: false
+    },
+    {
+        id: 10,
+        artist: "odumo",
+        duration: "2:10",
+        title: "Blinded",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-7_dc9fof.jpg",
+        audio: "",
         isFavorited: false
     },
 ]
@@ -97,66 +125,92 @@ const newReleases = [
 const popularTunes = [
     {
         id: "1",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-7_dc9fof.jpg",
-        title: "Life in a bubble",
-        subtitle: "Devan",
-        type: "Single",
+        artist: "fire boy",
         duration: "4:17",
+        title: "Life in a bubble",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-7_dc9fof.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: "2",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-6_jpz3sa.jpg",
-        title: "Mountain",
-        subtitle: "Kriks",
-        type: "Freestyle",
+        artist: "zinoleeski",
         duration: "2:30",
+        title: "Mountain",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-6_jpz3sa.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: "3",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-5_djbqbu.jpg",
-        title: "Limits",
-        subtitle: "John Dillion",
-        type: "Single",
         duration: "2:02",
+        artist: "tems",
+        title: "Limits",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-5_djbqbu.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: "4",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-4_zkf2sa.jpg",
-        title: "Black",
-        subtitle: "Ameed",
-        type: "Freestyle",
+        artist: "ayra starr",
         duration: "3:23",
+        title: "Black",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-4_zkf2sa.jpg",
+        audio: "",
         isFavorited: false
     },
     {
         id: "5",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-3_nakkh3.jpg",
-        title: "Cancelled",
-        subtitle: "emeri",
-        type: "Single",
+        artist: "2 Baba",
         duration: "4:50",
+        title: "Cancelled",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-3_nakkh3.jpg",
+        audio: "",
         isFavorited: false
-
     },
     {
         id: "6",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-2_jt3cjj.jpg",
-        title: "Nomad",
-        subtitle: "Macron eli",
-        type: "EP",
+        artist: "dbanj",
         duration: "11:37",
+        title: "Nomad",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959668/musica/cards/img-2_jt3cjj.jpg",
+        audio: "EP",
         isFavorited: false
     },
     {
         id: "7",
-        image: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-1_socoe4.jpg",
-        title: "Blind",
-        subtitle: "Wiz zee",
-        type: "Album",
+        artist: "tiwa",
         duration: "23:10",
+        title: "Blind",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-1_socoe4.jpg",
+        audio: "Album",
+        isFavorited: false
+    },
+    {
+        id: "8",
+        artist: "kiss",
+        duration: "2:17",
+        title: "Outcast",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-7_dc9fof.jpg",
+        audio: "",
+        isFavorited: false
+    },
+    {
+        id: "9",
+        artist: "buju",
+        duration: "2:30",
+        title: "Movement",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-6_jpz3sa.jpg",
+        audio: "",
+        isFavorited: false
+    },
+    {
+        id: "3",
+        artist: "zoro",
+        duration: "2:02",
+        title: "Limitsless",
+        cover: "https://res.cloudinary.com/dksvvhuj2/image/upload/v1673959669/musica/cards/img-5_djbqbu.jpg",
+        audio: "",
         isFavorited: false
     },
 ]
